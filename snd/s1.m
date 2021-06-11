@@ -1,0 +1,15 @@
+clear;
+
+Fs = 16000;
+f1 = 440;
+f2 = 660;
+t = [0:Fs-1]/Fs;
+y1 = sin(2*pi*f1*t);
+y2 = sin(2*pi*f2*t);
+
+plot(t, y1, t, y2);
+axis([0 0.005 -1 1]);
+ylabel("周波数");
+
+sound(y1, Fs);
+sound(y2, Fs);
