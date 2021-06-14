@@ -1,8 +1,8 @@
 clear;
 
-Fs=16000;  
-t=([0:Fs-1]/Fs);
-x=0.2*randn(1,Fs);   %make white noise
+Fs=16000;            % sampling rate = 16kHz
+t=([0:Fs-1]/Fs);     % time = 1sec
+x=0.2*randn(1,Fs);   % make white noise
 
 
 % plots from here 

@@ -12,14 +12,19 @@ y3 = 0.50 * sin(2*pi*f1*t); %amp = 0.50x
 y4 = sin(2*pi*f1*t + ph1);  %init phase = 90deg
 y5 = sin(2*pi*f1*t + ph2);  %init phase = 180deg
 
+%plots from here
 subplot(2, 1, 1);
 plot(t, y2, t, y3);
 legend('振幅0.25倍', '振幅0.50倍');
+xlabel('時間[s]');
+ylabel('振幅');
 axis([0 0.01 -1 1]);
 
 subplot(2, 1, 2);
 plot(t, y4, t, y5);
 legend('位相90度', '位相180度');
+xlabel('時間[s]');
+ylabel('振幅');
 axis([0 0.01 -1 1]);
 
 ampDiff = [y1; y2]';    %1xAmp vs 0.25Amp
