@@ -21,13 +21,13 @@ y=[y1 y2 y3 y4 y5 y6 y7 y8];  %ドレミファソラシドの連結
 Y=fft(y);          %fftする
 Yshift=fftshift(Y);     %fftshiftする
 
-%ローパスフィルタの作成
+%HPFの作成
 x1=ones(1,7442);
 x2=zeros(1,750);
 x3=zeros(1,750);
 x4=ones(1,7442);
-X=[x1 x2 x3 x4];  %ローパスフィルタ
-A=Yshift.*X;      %ローパスフィルタをかける
+X=[x1 x2 x3 x4];  %HPF
+A=Yshift.*X;      %HPF
 
 Ashift=ifftshift(A);   %ifftshiftする
 Z=ifft(Ashift);        %ifftする
