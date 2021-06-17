@@ -59,7 +59,7 @@ title('拡大した矩形波(1/(2k-1)で減衰)');
 
 %%%%%%%%%%%%%%%%%%%%%レポート用のグラフ%%%%%%%%%%%%%%%%%%%%%
 
-%{
+
 %正弦波のグラフ
 figure;
 
@@ -103,4 +103,4 @@ plot(f3,Xshift);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
 title('3.fftshift後の矩形波');
-%}
+

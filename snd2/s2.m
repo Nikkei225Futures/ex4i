@@ -112,5 +112,5 @@ subplot(2,2,4);
 plot(h2,X);
 axis([-600 600, -0.1 1.1]);
 xlabel('Frequency[Hz]');
-ylabel('Amplitude Spectrum');
+ylabel('filter');
 title('HPF');
