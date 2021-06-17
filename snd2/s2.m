@@ -82,22 +82,22 @@ title('4.拡大後の波形');
 
 figure;
 
-%LPF前の波形
+%HPF適用前の波形
 subplot(2,2,1);
 plot(h2,Yshift);
 axis([-600 600,0 1200]);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
-title('5.LPF前の波形');
+title('5.HPF適用前の波形');
 
-%LPF後の波形
+%HPF適用後の波形
 subplot(2,2,2);
 A=abs(A);
 plot(h2,A);
 axis([-600 600,0 1200]);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
-title('6.LPF後の波形');
+title('6.HPF適用後の波形');
 
 %IFFT後の波形
 subplot(2,2,3);
@@ -107,6 +107,10 @@ xlabel('Time[s]');
 ylabel('Amplitude');
 title('7.IFFT後の波形');
 
+%graph of hpf
 subplot(2,2,4);
 plot(h2,X);
 axis([-600 600, -0.1 1.1]);
+xlabel('Frequency[Hz]');
+ylabel('Amplitude Spectrum');
+title('HPF');
