@@ -47,28 +47,28 @@ figure;
 
 subplot(4,1,1);
 plot(t,x1);
-axis([0 0.01,-2 2]);
+axis([0 0.01,-4 4]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 title('矩形波');
 
 subplot(4,1,2);
 plot(t,x2);
-axis([0 0.01,-2 2]);
+axis([0 0.01,-4 4]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 title('矩形波(位相45度ずらした波形)');
 
 subplot(4,1,3);
 plot(t,x3);
-axis([0 0.01,-2 2]);
+axis([0 0.01,-4 4]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 title('矩形波(位相90度ずらした波形)');
 
 subplot(4,1,4);
 plot(t,x4);
-axis([0 0.01,-2 2]);
+axis([0 0.01,-4 4]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 title('矩形波(ランダムな位相ずらした波形)');
@@ -122,28 +122,28 @@ figure;
 
 subplot(4,1,1);
 plot(t,y1);
-axis([0 0.01,-2 2]);
+axis([0 0.01,-4 4]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 title('ノコギリ波');
 
 subplot(4,1,2);
 plot(t,y2);
-axis([0 0.01,-2 2]);
+axis([0 0.01,-4 4]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 title('ノコギリ波(位相45度ずらした波形)');
 
 subplot(4,1,3);
 plot(t,y3);
-axis([0 0.01,-2 2]);
+axis([0 0.01,-4 4]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 title('ノコギリ波(位相90度ずらした波形)');
 
 subplot(4,1,4);
 plot(t,y4);
-axis([0 0.01,-2 2]);
+axis([0 0.01,-4 4]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 title('ノコギリ波(ランダムな位相ずらした波形)');
