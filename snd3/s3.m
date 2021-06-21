@@ -51,7 +51,11 @@ clear;
     
     a=0;
     i=0;
-  
+    
+    for k=1:5
+        a=a+A1(k)*sin(2*pi*f1(k)*t1);   %それぞれのピークの純音を加算(あ)(= 合成音の生成)
+        i=i+A2(k)*sin(2*pi*f2(k)*t2);   %それぞれのピークの純音を加算(い)(= 合成音の生成)
+    end
     %sound(a,Fs1);
     %sound(i,Fs2);
     
@@ -79,63 +83,5 @@ clear;
     title('iの合成音のスペクトル');
     xlim([0 5000]);
     %axis([0 5000, 0 1000000]);
+   
     
-    
-  %{
-clear;
-
-    [Ya,Fs]=audioread('sound1.wav');
-    
-    Y1=Ya(:,1);
-    Y2=Ya(:,2);
-    Y=Y1+Y2;
-    Y=Y./2;
-    ya1=length(Y);
-    t=[0:ya1-1]/Fs;
-    
-   %{
-    figure;
-    plot(t,Y);
-    axis([0 3,-0.03 0.03]);
-    title('aの波形');
-    xlabel('time[s]');
-    ylabel('waveform');
-    %}
-    
-    pick=fft(Y);
-    pick=fftshift(pick);
-    
-    a=(ya1)/Fs;
-    f2=Fs/2;
-    freec=[-f2:1/a:f2-1/a];
-    
-    freq = [135 311 403 530 708 837];
-    peek = [-59.1 -56.4 -56.5 -46.6 -47.6 -48.5];
-    N=length(peek);
-    ams=(zeros(1,N));
-    
-    for k=1:N
-        ams(k)=10^(peek(k)/20);
-    end
-    
-    y1=0;
-    
-    for k=1:N
-        p=ams(k);
-        f=freq(k);
-        y1=y1+p*sin(2*pi*f*t);
-    end
-    
-    y1 = fft(y1);
-    y1 = abs(y1);
-    y1 = fftshift(y1);
-    
-    ya1=length(y1);
-    
-    figure;
-    plot(freec, abs(pick));
-    axis([0 5000, 0 100]);
-    title('aaaaのスペクトル');
-    xlabel('frequency[Hz]');
-    ylabel('power');
-    %}
