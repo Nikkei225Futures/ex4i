@@ -71,13 +71,14 @@ y=[-length(t1)/2:1:length(t1)/2-1];
     ylabel('R');
     title('フィルタ3(y=1/f)');
 
-%ピンクノイズの作成方法とホワイトノイズをかけ合わせる
+%ピンクノイズの作成方法 -> ホワイトノイズとフィルタをかけ合わせる
+
 p=Xshift.*Y;
 
 figure;
 subplot(2,1,1);
 plot(f,p);
-axis([-4000 4000, 0 3]);
+axis([-4000 4000, -3 3]);
 xlabel('Frequency[Hz]');
 ylabel('R');
 title('ピンクノイズ(周波数領域)');
@@ -93,56 +94,22 @@ xlabel('Time[s]');
 ylabel('Amplitude');
 title('ピンクノイズ(時間領域)');
 
-
-%sound(P,Fs);
-
 Fs=16000;
 P=P*700;
+%sound(P,Fs);
+
 f1=440;     %ra
-f2=1320;    %mi +2
+f2=2000;    %mi +2
 
 t=[0:Fs-1]/Fs;          
 y1=sin(2*pi*f1*t);
-y2=0.05*sin(2*pi*f1*t);
 y3=0.08*sin(2*pi*f2*t);
-y4=0.01*sin(2*pi*f2*t);
 
 %4つの音刺激
 Z1=[y1 x y1 x y1 x y1 x y1 x y1 x]; %1 440Hz-whitenoise-440Hz-whitenoise.... 
 Z2=[y1 P y1 P y1 P y1 P y1 P y1 P]; %2 440Hz-pink-440Hz-pink...
 Z3=[y3 x y3 x y3 x y3 x y3 x y3 x]; %3 1320Hz-white-1320Hz-white...
 Z4=[y3 P y3 P y3 P y3 P y3 P y3 P]; %4 1320Hz-pink-1320Hz-pink
-
-%{
-figure;
-subplot(2,2,1);
-title("440Hz純音にホワイトノイズを挿入");
-tt = [0:6.9*Fs-1]/Fs;
-plot(tt, Z1);
-ylim([-5 5]);
-xlim([0.9 1.2]);
-
-subplot(2,2,2);
-title("440Hz純音にピンクノイズを挿入");
-tt = [0:6.9*Fs-1]/Fs;
-plot(tt, Z2);
-ylim([-2 2]);
-xlim([0.9 1.2]);
-
-subplot(2,2,3);
-title("1320Hz純音にホワイトノイズを挿入");
-tt = [0:6.9*Fs-1]/Fs;
-plot(tt, Z3);
-ylim([-5 5]);
-xlim([0.9 1.2]);
-
-subplot(2,2,4);
-title("1320Hz純音にピンクノイズを挿入");
-tt = [0:6.9*Fs-1]/Fs;
-plot(tt, Z4);
-ylim([-2 2]);
-xlim([0.9 1.2]);
-%}
 
 figure;
 subplot(2,2,1);
@@ -161,8 +128,8 @@ subplot(2,2,4);
 pspectrum(Z4, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
 title("1320Hzにピンクノイズを挿入");
 
-%sound(Z1,Fs);  440-wn
-%sound(Z2,Fs);  440-pn
-%sound(Z3,Fs);  1320-wn
-%sound(Z4,Fs);  1320-pn
+%sound(Z1,Fs);  %440-wn
+%sound(Z2,Fs);  %440-pn
+%sound(Z3,Fs);  %1320-wn
+%sound(Z4,Fs);  %1320-pn
 
