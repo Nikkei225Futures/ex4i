@@ -96,7 +96,7 @@ title('ピンクノイズ(時間領域)');
 
 %sound(P,Fs);
 
-Fs=16000;x=x*700;
+Fs=16000;
 P=P*700;
 f1=440;     %ra
 f2=1320;    %mi +2
@@ -110,7 +110,7 @@ y4=0.01*sin(2*pi*f2*t);
 %4つの音刺激
 Z1=[y1 x y1 x y1 x y1 x y1 x y1 x]; %1 440Hz-whitenoise-440Hz-whitenoise.... 
 Z2=[y1 P y1 P y1 P y1 P y1 P y1 P]; %2 440Hz-pink-440Hz-pink...
-Z3=[y3 x y3 x y3 x y3 x y3 x y3 x]; %3 1320Hz-white-1320Hz-white...
+Z3=[y x y3 x y3 x y3 x y3 x y3 x]; %3 1320Hz-white-1320Hz-white...
 Z4=[y3 P y3 P y3 P y3 P y3 P y3 P]; %4 1320Hz-pink-1320Hz-pink
 
 %{
@@ -161,8 +161,8 @@ subplot(2,2,4);
 pspectrum(Z4, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
 title("1320Hzにホワイトノイズを挿入");
 
-sound(Z1,Fs);
+%sound(Z1,Fs);
 %sound(Z2,Fs);
 %sound(Z3,Fs);
-%sound(Z4,Fs);
+sound(Z4,Fs);
 

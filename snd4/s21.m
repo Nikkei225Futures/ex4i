@@ -103,8 +103,8 @@ f2=1320;    %mi +2
 
 t=[0:Fs-1]/Fs;          
 y1=sin(2*pi*f1*t);
-y2=0.01*sin(2*pi*f1*t);
-y3=sin(2*pi*f2*t);
+y2=0.05*sin(2*pi*f1*t);
+y3=0.08*sin(2*pi*f2*t);
 y4=0.01*sin(2*pi*f2*t);
 
 %4つの音刺激
@@ -151,18 +151,18 @@ title("440Hzにホワイトノイズを挿入");
 
 subplot(2,2,2);
 pspectrum(Z2, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
-title("1320Hzにホワイトノイズを挿入");
+title("440Hzにピンクノイズを挿入");
 
 subplot(2,2,3);
 pspectrum(Z3, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
-title("440Hzにホワイトノイズを挿入");
+title("1320Hzにホワイトノイズを挿入");
 
 subplot(2,2,4);
 pspectrum(Z4, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
-title("1320Hzにホワイトノイズを挿入");
+title("1320Hzにピンクノイズを挿入");
 
-%sound(Z1,Fs);
-%sound(Z2,Fs);
-%sound(Z3,Fs);
-sound(Z4,Fs);
+%sound(Z1,Fs);  440-wn
+%sound(Z2,Fs);  440-pn
+%sound(Z3,Fs);  1320-wn
+%sound(Z4,Fs);  1320-pn
 
