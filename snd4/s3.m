@@ -6,24 +6,24 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%矩形波%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+close all;
 clear;
-
 
 Fs=16000;  
 f=440;
-N=15;           %加算する三角関数の数
-y1=0;
-y2=0;
+N=15;               %number of loops
+squareWave=0;
+squareMF=0;
 t=([0:Fs-1]/Fs);
 
-for k=1:N;
-    y1=y1+sin(2*pi*(2*k-1)*f*t)/(2*k-1);    %矩形波の公式  
+for k=1:N
+    squareWave=squareWave+sin(2*pi*(2*k-1)*f*t)/(2*k-1);    %make square wave 
 end
 
-y2=y1-sin(2*pi*f*t);
+squareMF=squareWave-sin(2*pi*f*t);
 
 figure;
-plot(t, y1, t, y2);
+plot(t, squareWave, t, squareMF);
 axis([0 0.005,-2 2]);
 xlabel('Time[s]');
 ylabel('Amplitude');
@@ -32,44 +32,41 @@ title('矩形波とミッシングファンダメンタル');
 
 figure;
 subplot(2,1,1);
-pspectrum(y1, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
+pspectrum(squareWave, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
 title("矩形波");
 
 subplot(2,1,2);
-pspectrum(y2, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
+pspectrum(squareMF, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
 title("missingfundamental");
 
 %{
 subplot(2,1,2);
-plot(t,y2);
+plot(t,squareMF);
 axis([0 0.01,-1 1]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 title('矩形波-基本周波数');
 %}
 
-%sound(y1,Fs);  %ただの矩形波
-%sound(y2,Fs);  %矩形波から基本周波数を抜いた音(ミッシングファンダメンタル)
+%sound(squareWave,Fs);  %ただの矩形波
+%sound(squareMF,Fs);  %矩形波から基本周波数を抜いた音(ミッシングファンダメンタル)
 
-
-
-%%%%%ノコギリ波%%%%%%%%%%%%
-
+% sawtooth wave
 Fs=16000;  
 f=440;
 N=15;           %加算する三角関数の数
 t=([0:Fs-1]/Fs);
-y3=0;
-y4=0;
+sawtoothWave=0;
+sawtoothMF=0;
 
-for k=1:N;
-    y3=y3+(-1)^(k-1)/k*sin(2*pi*k*f*t);   %ノコギリ波の公式
+for k=1:N
+    sawtoothWave=sawtoothWave+(-1)^(k-1)/k*sin(2*pi*k*f*t);   %ノコギリ波の公式
 end
 
-y4=y3-sin(2*pi*f*t);
+sawtoothMF=sawtoothWave-sin(2*pi*f*t);
   
 figure;
-plot(t,y3,t,y4);
+plot(t,sawtoothWave,t,sawtoothMF);
 axis([0 0.005,-3 3]);
 xlabel('Time[s]');
 ylabel('Amplitude');
@@ -78,14 +75,14 @@ title('ノコギリ波とミッシングファンダメンタル');
 
 figure;
 subplot(2,1,1);
-pspectrum(y3, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
+pspectrum(sawtoothWave, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
 title("ノコギリ波");
 
 subplot(2,1,2);
-pspectrum(y4, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
+pspectrum(sawtoothMF, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
 title("missingfundamental");
 
-%sound(y3,Fs);%ただのノコギリ波
-%sound(y4,Fs);%ノコギリ波から基本周波数を抜いた音(ミッシングファンダメンタル)
+%sound(sawtoothWave,Fs);%ただのノコギリ波
+%sound(sawtoothMF,Fs);%ノコギリ波から基本周波数を抜いた音(ミッシングファンダメンタル)
 
 %基本周波数を抜いた音の方が少し高く聞こえる
