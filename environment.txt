@@ -1,0 +1,6 @@
+MATLAB バージョン: 9.9.0.1592791 (R2020b) Update 5
+オペレーティング システム: Microsoft Windows 10 Enterprise LTSC Version 10.0 (Build 17763)
+Java バージョン: Java 1.8.0_202-b08 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+
+processsor: Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz (2 CPUs), ~2.1GHz
+memmory: 12288MB RAM
