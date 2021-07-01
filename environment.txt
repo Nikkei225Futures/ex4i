@@ -1,6 +1,15 @@
+env1(A-WS)-------------------------------------------------------------------
 MATLAB バージョン: 9.9.0.1592791 (R2020b) Update 5
 オペレーティング システム: Microsoft Windows 10 Enterprise LTSC Version 10.0 (Build 17763)
 Java バージョン: Java 1.8.0_202-b08 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
 
 processsor: Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz (2 CPUs), ~2.1GHz
-memmory: 12288MB RAM
+memory: 12288MB RAM
+
+env2-------------------------------------------------------------------
+MATLAB バージョン: 9.10.0.1669831 (R2021a) Update 2
+オペレーティング システム: Microsoft Windows 10 Pro Version 10.0 (Build 19042)
+Java バージョン: Java 1.8.0_202-b08 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+
+processor: AMD Ryzen 7 3700X 8-Core Processor (16CPUs), ~3.6GHz
+memory: 16384MB RAM
