@@ -7,32 +7,33 @@ red=img(:,:,1);
 green=img(:,:,2);
 blue=img(:,:,3);
 
-%グレイスケール画像の演算
+% make grayscale img
 gray=0.3*red+0.59*green+0.11*blue;
+gray8bit = gray;
 
-%bitshift関数でシフトしてグレイスケール画像の量子化ビット数を変化させる
-gray_shift_4=bitshift(gray,-4);
-gray_shift_6=bitshift(gray,-6);
-gray_shift_7=bitshift(gray,-7);
+% bitshift
+gray4bit=bitshift(gray,-4);
+gray2bit=bitshift(gray,-6);
+gray1bit=bitshift(gray,-7);
 
-%画像の値の範囲を考慮して画像を表示
+%show imgs
 figure('Name', 'grayscale 8bit');
 imshow(gray);
 
 figure('Name', 'grayscale 4bit');
-imshow(gray_shift_4,[0 15]);
+imshow(gray4bit,[0 15]);
 
 figure('Name', 'grayscale 2bit');
-imshow(gray_shift_6,[0 3]);
+imshow(gray2bit,[0 3]);
 
 figure('Name', 'grayscale 1bit(二値化画像)');
-imshow(gray_shift_7,[0 1]);
+imshow(gray1bit,[0 1]);
 
-%imwrite関数を使ってbmp形式で保存
-imwrite(gray,'kadai2_1.bmp');
-imwrite(gray_shift_4*(255/15),'kadai2_2.bmp');
-imwrite(gray_shift_6*(255/3),'kadai2_3.bmp');
-imwrite(gray_shift_7*255,'kadai2_4.bmp');
+% save imgs as files
+imwrite(gray,'grayKut8bit.bmp');
+imwrite(gray4bit*(255/15),'grayKut4bit.bmp');
+imwrite(gray2bit*(255/3),'grayKut2bit.bmp');
+imwrite(gray1bit*255,'grayKut1bit.bmp');
 
 
 

@@ -2,30 +2,30 @@
 close all;
 clear;
 
-img1=imread('kadai2_1.bmp');
-img2=imread('kadai2_2.bmp');
-img3=imread('kadai2_3.bmp');
-img4=imread('kadai2_4.bmp');
+grayKut8bit=imread('grayKut8bit.bmp');
+grayKut4bit=imread('grayKut4bit.bmp');
+grayKut2bit=imread('grayKut2bit.bmp');
+grayKut1bit=imread('grayKut1bit.bmp');
 
-%階調反転(ネガポジ)変換を行う
-img5=255-img1;
-img6=255-img2;
-img7=255-img3;
-img8=255-img4;
+% make inverse of img
+grayKut8bitInv=255-grayKut8bit;
+grayKut4bitInv=255-grayKut4bit;
+grayKut2bitInv=255-grayKut2bit;
+grayKut1bitInv=255-grayKut1bit;
 
-%画像の値の範囲を考慮して画像を表示
-figure;
-imshow(img5);
-figure;
-imshow(img6);
-figure;
-imshow(img7);
-figure;
-imshow(img8);
+% show img 
+figure('Name', '255 - 8bitImg');
+imshow(grayKut8bitInv);
+figure('Name', '255 - 4bitImg');
+imshow(grayKut4bitInv);
+figure('Name', '255 - 2bitImg');
+imshow(grayKut2bitInv);
+figure('Name', '255 - 1bitImg');
+imshow(grayKut1bitInv);
 
-%imwrite関数を使ってbmp形式で保存
-imwrite(img5,'kadai3_1.bmp');
-imwrite(img6,'kadai3_2.bmp');
-imwrite(img7,'kadai3_3.bmp');
-imwrite(img8,'kadai3_4.bmp');
+% save imgs as file
+imwrite(grayKut8bitInv,'grayKut8bitInv.bmp');
+imwrite(grayKut4bitInv,'grayKut4bitInv.bmp');
+imwrite(grayKut2bitInv,'grayKut2bitInv.bmp');
+imwrite(grayKut1bitInv,'grayKut1bitInv.bmp');
 

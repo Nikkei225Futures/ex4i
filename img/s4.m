@@ -2,18 +2,23 @@
 close all;
 clear;
 
-gray=imread('kadai2_1.bmp');
+gray=imread('grayKut8bit.bmp');
 
-%閾値処理%
-bin1_gray = gray >= 127;
-bin2_gray = gray >= 100;
+threshold1 = 50;
+threshold2 = 200;
 
-%画像の値の範囲を考慮して画像を表示する
-figure;
+% make binary imgs using threshold
+bin1_gray = gray >= threshold1;
+bin2_gray = gray >= threshold2;
+threshold1 = string(threshold1);
+threshold2 = string(threshold2);
+
+% show imgs
+figure('Name', 'threshold = ' + threshold1);
 imshow(bin1_gray,[0 1]);
-figure;
+figure('Name', 'threshold = ' + threshold2);
 imshow(bin2_gray,[0 1]);
 
 
-imwrite(bin1_gray,'kadai4_1.bmp');
-imwrite(bin2_gray,'kadai4_2.bmp');
+imwrite(bin1_gray,'grayKutThreshold1.bmp');
+imwrite(bin2_gray,'grayKutThreshold2.bmp');

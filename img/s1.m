@@ -1,13 +1,15 @@
 %%%%%カラーチャネル操作%%%%%
 close all;
 clear;
-%画像の読み込み
+
 img=imread('kut2.jpg');
-%それぞれの色チャネルの配列を作成
+
+%make vars of each color channel
 red=img(:,:,1);
 green=img(:,:,2);
 blue=img(:,:,3);
-%それぞれの色チャネルをグレイスケール画像として表示する
+
+%show each color channel
 figure('Name', 'grayscale(red channel)');
 imshow(red);
 
@@ -17,12 +19,12 @@ imshow(green);
 figure('Name', 'grayscale(blue channel)');
 imshow(blue);
 
-%赤チャネルと青チャネルを入れ替えた画像%
+% make swaped img(r<->b)
 img2(:,:,1)=blue;
 img2(:,:,2)=green;
 img2(:,:,3)=red;
 
-figure('Name', 'r<->b');
+figure('Name', '赤色チャネルと青色チャネルを入れ替えた画像');
 imshow(img2);
 
 

@@ -1,29 +1,29 @@
 %%%%%背景差分%%%%%
-
+close all;
 clear;
 
-img1=imread('back.png');
-img2=imread('person.png');
+back=imread('back.jpg');
+forward=imread('forward.jpg');
 
-%グレイスケール画像の作成
-red_img1 = img1(:,:,1);
-green_img1 = img1(:,:,2);
-blue_img1 = img1(:,:,3);
+%make gray imgs
+redBack = back(:,:,1);
+greenBack = back(:,:,2);
+blueBack = back(:,:,3);
 
-red_img2 = img2(:,:,1);
-green_img2 = img2(:,:,2);
-blue_img2 = img2(:,:,3);
+redForward = forward(:,:,1);
+greenForward = forward(:,:,2);
+blueForward = forward(:,:,3);
 
-gray1 = 0.3*red_img1+0.59*green_img1+0.11*blue_img1;
-gray2 = 0.3*red_img2+0.59*green_img2+0.11*blue_img2;
+grayBack = 0.3*redBack+0.59*greenBack+0.11*blueBack;
+grayForward = 0.3*redForward+0.59*greenForward+0.11*blueForward;
 
-%2つのグレイスケール画像をuint8からint16型に変換
-gray1_int16 = int16(gray1);
-gray2_int16 = int16(gray2);
+%uint8 -> double, take diff
+backDouble = cast(grayBack, 'double');
+forwardDouble = cast(grayForward, 'double');
+difDouble = backDouble - forwardDouble;
 
-gray1_int16 = gray1_int16 - gray2_int16;
-%減算結果の絶対値をuint8型に戻し,画像を出力
-diff_uint8 = uint8(abs(gray1_int16));
+%abs(diffed double) -> uint8
+diff_uint8 = uint8(abs(difDouble));
 
 imshow(diff_uint8);
 
