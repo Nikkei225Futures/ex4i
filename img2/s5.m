@@ -1,31 +1,31 @@
 clear;
+close all;
 
-img = imread('thispersondoesnotexist.jpg');
+faceImg = imread('thispersondoesnotexist.jpg');
 
 %rgb -> hsv
-img=rgb2hsv(img);
+faceImg = rgb2hsv(faceImg);
 
 %make filter
-hueFilter = img(:,:,1) < 0.10;   %色相
+hueFilter = faceImg(:,:,1) < 0.10;   %色相
 hueFilter = hueFilter > 0.01;
-saturationFilter = img(:,:,2) > 0.25;   %彩度
-brightnessFilter = img(:,:,3) > 0.20;   %明度
+saturationFilter = faceImg(:,:,2) > 0.2;   %彩度
+brightnessFilter = faceImg(:,:,3) > 0.1;   %明度
 
 filter = hueFilter & saturationFilter & brightnessFilter;
+figure;
+imshow(filter);
 
 %apply filter
-brightness = img(:,:,3);
+brightness = faceImg(:,:,3);
 brightness(~(filter)) = 0;
-img(:,:,3) = brightness;
+faceImg(:,:,3) = brightness;
 
 %hsv -> rgb
-img=hsv2rgb(img);
-
+faceImg = hsv2rgb(faceImg);
 
 figure;
-imshow(img);
-imwrite(img,'skinFiltered.bmp');
-
-%肌の色によっては検出できない事があるので倫理的に問題がある
+imshow(faceImg);
+imwrite(faceImg,'skinFiltered.bmp');
 
 

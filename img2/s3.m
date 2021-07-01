@@ -24,11 +24,11 @@ verDerivatived = abs(verDerivatived);
 hrznDerivatived = uint8(hrznDerivatived);
 verDerivatived = uint8(verDerivatived);
 
-figure;
+figure('Name', '水平方向微分フィルタ');
 imshow(hrznDerivatived);
 imwrite(hrznDerivatived, 'horizontalDerivatived.bmp');
  
-figure; 
+figure('Name', '垂直方向微分フィルタ');
 imshow(verDerivatived);
 imwrite(verDerivatived, 'verticalDerivatived.bmp');
 
