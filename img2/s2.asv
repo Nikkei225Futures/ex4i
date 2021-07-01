@@ -1,0 +1,59 @@
+close all;
+clear;
+
+imgImpulse=imread('kadai1_1.bmp');  
+imgGaussian=imread('kadai1_2.bmp'); 
+
+avgFilter=[1/9 1/9 1/9;1/9 1/9 1/9;1/9 1/9 1/9];    % filter(average)
+
+%filtering each img which has noise
+averagedImpulse = filter2(avgFilter,imgImpulse);   
+averagedGaussian = filter2(avgFilter,imgGaussian);
+averagedImpulse = uint8(averagedImpulse);
+averagedGaussian = uint8(averagedGaussian);
+
+ figure('Name', '平滑化フィルタxインパルス雑音');
+ imshow(averagedImpulse);
+ imwrite(averagedImpulse,'kadai2_1.bmp');
+ 
+ figure('Name', '平滑化フィルタx白色ガウス雑音');
+ imshow(averagedGaussian);
+ imwrite(averagedGaussian,'kadai2_2.bmp');
+ 
+ impulseNoise = imread('kadai1_1.bmp');  
+ gaussianNoise = imread('kadai1_2.bmp'); 
+ midianizedImpulse = impulseNoise;
+ medianizedGaussian = gaussianNoise;
+ 
+ 
+ [height width] = size(impulseNoise); 
+ 
+ %determine value of  pixel to get near 8 pixels
+ for y = 2:height-1
+     for x = 2:width-1      
+         a = impulseNoise(y-1:y+1,x-1:x+1);
+         b = gaussianNoise(y-1:y+1,x-1:x+1);
+         
+         A = reshape(a,[1,9]);
+         B = reshape(b,[1,9]);
+         
+         midianizedImpulse(y,x) = median(A);
+         medianizedGaussian(y,x) = median(B); 
+      
+     end
+ end
+ 
+ %outimg3=uint8(out3);
+ %outimg4=uint8(out4);
+
+ figure('Name', 'メディアンフィルタxインパルス雑音');
+ imshow(midianizedImpulse);
+ imwrite(midianizedImpulse,'kadai2_3.bmp');
+ 
+ figure('Name', 'メディアンフィルタx白色ガウス雑音');
+ imshow(medianizedGaussian);
+ imwrite(medianizedGaussian,'kadai2_4.bmp');
+ 
+ %平滑化フィルタは輪郭がはっきりいない。周囲の画素の影響を受けるためぼやける
+
+ 
