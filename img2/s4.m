@@ -18,7 +18,7 @@ filteredImg = abs(filteredImg);
 %cast to uing8
 filteredImg = uint8(filteredImg);
 
-figure('Name', 'ラプラシアンフィルタ+閾値処理');
+figure('Name', 'ラプラシアンフィルタ');
 imshow(filteredImg);
 
 %if filtered img < 128, output = 0(black)
@@ -31,3 +31,5 @@ figure('Name', 'ラプラシアンフィルタ+閾値処理');
 imshow(filteredImg);
 imwrite(filteredImg,'laplacianFiltered.bmp');
 
+%ラプラシアンフィルタを適用したときに取り得る値は255を超える可能性がある
+%->最小値-最大値を正規化する必要があるが、検出する境界線が薄くなる事もあるので注意が必要
