@@ -11,8 +11,8 @@ shifted = fftshift(freq);
 
 figure;
 colormap(gray);
-pimg1 = abs(shifted).^2;
-imagesc(log(pimg1));
+originPower = abs(shifted).^2;
+imagesc(log(originPower));
 
 [height width] = size(imgLenna);
 
