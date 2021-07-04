@@ -32,84 +32,28 @@ shiftedOctave=ifftshift(filteredOctave);
 timeOctave=ifft(shiftedOctave); 
 timeOctave=real(timeOctave);
 
-%figure;
-
+figure;
 %IFFT後の波形
 plot(t2,timeOctave);
 axis([0 2,-1.5 1.5]);
 xlabel('Time[s]');
-ylabel('Amplitude');
-title('IFFT後の波形');
+ylabel('振幅');
+%title('HPF適用後のドレミファソラシドの音');
 
 sound(timeOctave,Fs); %ドレミファの音
 
-%%%%%%%%%%%%%%%%%%%%%%%%レポート用グラフ%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%figure;
-
-%yの波形
-subplot(2,2,1);
-plot(t2,naturalOctave);
-axis([0 2,-1.5 1.5]);
-xlabel('Time[s]');
-ylabel('Amplitude');
-title('1.ドレミファソラシドの波形');
-
-%FFT後の波形
-subplot(2,2,2);
-freqNatural=abs(freqNatural);
-plot(freqScale1,freqNatural);
-xlabel('Frequency[Hz]');
-ylabel('Amplitude Spectrum');
-title('2.FFT後の波形');
-
-%fftshift後の波形
-subplot(2,2,3);
-shiftedFreqNatural=abs(shiftedFreqNatural);
-plot(freqScale2,shiftedFreqNatural);
-xlabel('Frequency[Hz]');
-ylabel('Amplitude Spectrum');shiftedFreqNatural=abs(shiftedFreqNatural);
-title('3.fftshift後の波形');
-
-%拡大後の波形
-subplot(2,2,4);
-plot(freqScale2,shiftedFreqNatural);
-axis([200 600,0 1200]);
-xlabel('Frequency[Hz]');
-ylabel('Amplitude Spectrum');
-title('4.拡大後の波形');
+%plots from here%
 
 figure;
-
-%HPF適用前の波形
-subplot(2,2,1);
-plot(freqScale2,shiftedFreqNatural);
-axis([-600 600,0 1200]);
-xlabel('Frequency[Hz]');
-ylabel('Amplitude Spectrum');
-title('5.HPF適用前の波形');
-
-%HPF適用後の波形
-subplot(2,2,2);
-filteredOctave=abs(filteredOctave);
-plot(freqScale2,filteredOctave);
-axis([-600 600,0 1200]);
-xlabel('Frequency[Hz]');
-ylabel('Amplitude Spectrum');
-title('6.HPF適用後の波形');
-
-%IFFT後の波形
-subplot(2,2,3);
-plot(t2,timeOctave);
-axis([0 2,-1.5 1.5]);
-xlabel('Time[s]');
-ylabel('Amplitude');
-title('7.IFFT後の波形');
+pspectrum(naturalOctave, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60, 'FrequencyLimits',[0 1000]);
+figure;
+pspectrum(timeOctave, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60, 'FrequencyLimits',[0 1000]);
 
 %graph of hpf
-subplot(2,2,4);
+%subplot(2,2,4);
+figure;
 plot(freqScale2,HPF);
 axis([-600 600, -0.1 1.1]);
-xlabel('Frequency[Hz]');
+xlabel('周波数[Hz]');
 ylabel('filter');
-title('HPF');
+%title('HPF');

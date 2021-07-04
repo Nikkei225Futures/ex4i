@@ -51,11 +51,11 @@ xlim([0 1.6]);
 
 figure;
 pspectrum(closerFreqsFunc, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
-title("440-880Hz, 音脈分凝を生じにくい音");
+title("440-550Hz, 音脈分凝を生じにくい音");
 
 figure;
 pspectrum(distantFreqsFunc, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60);
-title("440-1320Hz, 音脈分凝を生じやすい音");
+title("440-2000Hz, 音脈分凝を生じやすい音");
 
-%sound(Y1,Fs);
-sound(distantFreqsFunc,Fs);
+%sound(closerFreqsFunc,Fs);
+%sound(distantFreqsFunc,Fs);

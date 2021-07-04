@@ -16,6 +16,6 @@ plot(t,func3);         % 440Hz + 441Hz sin wave
 axis([0 4 -2 2]);   
 xlabel('時間[s]');
 ylabel('振幅');
-title('うなり');
+%title('うなり');
 
 soundsc(func3,Fs);

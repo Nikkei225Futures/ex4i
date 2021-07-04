@@ -28,7 +28,7 @@ axis([0 0.005,-2 2]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 legend("矩形波", "missing fundamental");
-title('矩形波とミッシングファンダメンタル');
+%title('矩形波とミッシングファンダメンタル');
 
 figure;
 subplot(2,1,1);
@@ -71,7 +71,7 @@ axis([0 0.005,-3 3]);
 xlabel('Time[s]');
 ylabel('Amplitude');
 legend("ノコギリ波", "missing fundamental");
-title('ノコギリ波とミッシングファンダメンタル');
+%title('ノコギリ波とミッシングファンダメンタル');
 
 figure;
 subplot(2,1,1);

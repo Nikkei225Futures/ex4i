@@ -28,14 +28,14 @@ plot(fscale3,shiftedFreq440hz);
 axis([0 1000,0 600]);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
-title('拡大した440Hzの純音');
+%title('拡大した440Hzの純音');
 
 subplot(2, 1, 2);
 plot(fscale3,shiftedFreq4402hz);
 axis([0 1000,0 600]);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
-title('拡大した440.2Hzの純音');
+%title('拡大した440.2Hzの純音');
 
 
 %矩形波
@@ -56,7 +56,7 @@ plot(fscale3,Xshift);
 axis([0 200,0 600]);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
-title('拡大した矩形波(1/(2k-1)で減衰)');
+%title('拡大した矩形波(1/(2k-1)で減衰)');
 
 
 %%%%%%%%%%%%%%%%%%%%%レポート用のグラフ%%%%%%%%%%%%%%%%%%%%%
@@ -70,39 +70,41 @@ plot(t,pure440hz);
 axis([0 0.02,-1 1]);
 xlabel('Time[s]');
 ylabel('Amplitude');
-title('1.純音');
+%title('1.純音');
 
 subplot(2,2,2);
 plot(fscale2,freq440hz);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
-title('2.FFT後の純音');
+%title('2.FFT後の純音');
 
 subplot(2,2,3);
 plot(fscale3,shiftedFreq440hz);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
-title('3.fftshift後の純音');
+%title('3.fftshift後の純音');
 
-%矩形波のグラフ
+%矩形波plots
 figure;
-
-subplot(2,2,1);
+%subplot(2,2,1);
 plot(t2,fourCycle);
 axis([0 0.14,-0.2 1.2]);
 xlabel('Time[s]');
 ylabel('Amplitude');
-title('1.矩形波');
+%title('1.矩形波');
 
-subplot(2,2,2);
+figure
+%subplot(2,2,2);
 plot(fscale2,X);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
-title('2.FFT後の矩形波');
+%title('2.FFT後の矩形波');
 
-subplot(2,2,3);
+figure;
+%subplot(2,2,3);
 plot(fscale3,Xshift);
+axis([0 200,0 600]);
 xlabel('Frequency[Hz]');
 ylabel('Amplitude Spectrum');
-title('3.fftshift後の矩形波');
+%title('3.fftshift後の矩形波');
 

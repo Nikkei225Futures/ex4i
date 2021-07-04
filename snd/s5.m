@@ -28,5 +28,5 @@ plot(t,func1,t,func2,t,func3);
 legend('N=1','N=5','N=25');
 xlabel('時間[s]');
 ylabel('振幅');
-title('三角波');
+%title('三角波');
 

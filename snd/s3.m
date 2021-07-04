@@ -26,4 +26,6 @@ xlabel('時間[s]');
 ylabel('振幅');
 title('チャープ波(0.49-0.50秒)');
 
-sound(y, Fs);
+figure;
+pspectrum(y, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'MinThreshold', -60, 'FrequencyLimits',[200 1200]);
+%sound(y, Fs);

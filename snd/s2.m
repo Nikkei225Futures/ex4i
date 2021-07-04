@@ -14,14 +14,16 @@ func4 = sin(2*pi*f1*t + ph1);  %init phase = 90deg
 func5 = sin(2*pi*f1*t + ph2);  %init phase = 180deg
 
 %plots from here
-subplot(2, 1, 1);
+figure;
+%subplot(2, 1, 1);
 plot(t, func1, t, func2, t, func3);
 legend('振幅1.00倍', '振幅0.25倍', '振幅0.50倍');
 xlabel('時間[s]');
 ylabel('振幅');
 axis([0 0.01 -1 1]);
 
-subplot(2, 1, 2);
+%subplot(2, 1, 2);
+figure;
 plot(t, func1, t, func4, t, func5);
 legend('位相0度', '位相90度', '位相180度');
 xlabel('時間[s]');
