@@ -12,11 +12,11 @@ averagedGaussian = filter2(avgFilter,imgGaussian);
 averagedImpulse = uint8(averagedImpulse);
 averagedGaussian = uint8(averagedGaussian);
 
-figure('Name', '•½ŠŠ‰»ƒtƒBƒ‹ƒ^xƒCƒ“ƒpƒ‹ƒXG‰¹');
+figure('Name', 'å¹³æ»‘åŒ–ãƒ•ã‚£ãƒ«ã‚¿xã‚¤ãƒ³ãƒ‘ãƒ«ã‚¹é›‘éŸ³');
 imshow(averagedImpulse);
 imwrite(averagedImpulse, 'averagedImpulseNoise.bmp');
 
-figure('Name', '•½ŠŠ‰»ƒtƒBƒ‹ƒ^x”’FƒKƒEƒXG‰¹');
+figure('Name', 'å¹³æ»‘åŒ–ãƒ•ã‚£ãƒ«ã‚¿xç™½è‰²ã‚¬ã‚¦ã‚¹é›‘éŸ³');
 imshow(averagedGaussian);
 imwrite(averagedGaussian,'averagedGaussianNoise.bmp');
 
@@ -50,13 +50,13 @@ end
 %outimg3 = uint8(out3);
 %outimg4 = uint8(out4);
 
-figure('Name', 'ƒƒfƒBƒAƒ“ƒtƒBƒ‹ƒ^xƒCƒ“ƒpƒ‹ƒXG‰¹');
+figure('Name', 'ãƒ¡ãƒ‡ã‚£ã‚¢ãƒ³ãƒ•ã‚£ãƒ«ã‚¿xã‚¤ãƒ³ãƒ‘ãƒ«ã‚¹é›‘éŸ³');
 imshow(midianizedImpulse);
 imwrite(midianizedImpulse, 'medianizedImpulseNoise.bmp');
 
-figure('Name', 'ƒƒfƒBƒAƒ“ƒtƒBƒ‹ƒ^x”’FƒKƒEƒXG‰¹');
+figure('Name', 'ãƒ¡ãƒ‡ã‚£ã‚¢ãƒ³ãƒ•ã‚£ãƒ«ã‚¿xç™½è‰²ã‚¬ã‚¦ã‚¹é›‘éŸ³');
 imshow(medianizedGaussian);
 imwrite(medianizedGaussian, 'medianizedGaussianNoise.bmp');
 
-%•½ŠŠ‰»ƒtƒBƒ‹ƒ^‚Í—ÖŠs‚ª‚Í‚Á‚«‚è‚¢‚È‚¢BüˆÍ‚Ì‰æ‘f‚Ì‰e‹¿‚ğ‘å‚«‚­ó‚¯‚é‚½‚ß‚Ú‚â‚¯‚é
-%‰æ‘œ‚Ì‰‚Ìˆ—‚Í¡‰ñ‚ÍƒmƒCƒY‚Ì‰æ‘œ‚ğ‚»‚Ì‚Ü‚Üo—Í
+%å¹³æ»‘åŒ–ãƒ•ã‚£ãƒ«ã‚¿ã¯è¼ªéƒ­ãŒã¯ã£ãã‚Šã„ãªã„ã€‚å‘¨å›²ã®ç”»ç´ ã®å½±éŸ¿ã‚’å¤§ããå—ã‘ã‚‹ãŸã‚ã¼ã‚„ã‘ã‚‹
+%ç”»åƒã®ç¸ã®å‡¦ç†ã¯ä»Šå›ã¯ãƒã‚¤ã‚ºã®ç”»åƒã‚’ãã®ã¾ã¾å‡ºåŠ›

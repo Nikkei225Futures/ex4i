@@ -27,4 +27,3 @@ imwrite(faceImg,'skinFiltered.bmp');
 %imshow(filter);
 
 %rgbだと、明度を表現しにくいのでhsv色空間を使うとよい(影などは色相や彩度は同じだが、明度が大きく異なる)
-

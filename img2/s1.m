@@ -33,6 +33,3 @@ imwrite(outimg, 'grayGaussianNoise.bmp');
 %インパルス雑音は0か1の極端な値を入れているから白と黒の雑音がはっきり確認できる
 %白色ガウス雑音は
 
-
-
-

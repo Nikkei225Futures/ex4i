@@ -32,3 +32,4 @@ figure('Name', '垂直方向微分フィルタ');
 imshow(verDerivatived);
 imwrite(verDerivatived, 'verticalDerivatived.bmp');
 
+
