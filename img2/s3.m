@@ -1,33 +1,35 @@
 close all;
 clear;
 
-img=imread('kut.jpg');
-red=img(:,:,1);
-green=img(:,:,2);
-blue=img(:,:,3);
-gray=0.3*red+0.59*green+0.11*blue;
+%read img, create grayImg
+img = imread('kut.jpg');
+red = img(:,:,1);
+green = img(:,:,2);
+blue = img(:,:,3);
+gray = 0.3*red+0.59*green+0.11*blue;
 
-%水平方向・垂直方向微分フィルタの生成(3*3行列)
-fil1=[-1 0 1;-2 0 2;-1 0 1];   %水平方向微分フィルタ
-fil2=[-1 -2 -1;0 0 0;1 2 1];   %垂直方向微分フィルタ
+%make derivative filter, horizontal and vertical
+hrznDerivFilter = [-1 0 1;-2 0 2;-1 0 1];   %horizontal derivative filter
+verDerivFilter = [-1 -2 -1;0 0 0;1 2 1];    %vertical derivative filter
 
-%Sobelフィルターをかける
-outimg1 = filter2(fil1,gray);
-outimg2 = filter2(fil2,gray);
+%apply each derivative filter
+hrznDerivatived = filter2(hrznDerivFilter,gray);
+verDerivatived = filter2(verDerivFilter,gray);
 
-%結果に負の値が含まれているため,abs関数を用いて絶対値をとる
-outimg1 = abs(outimg1);
-outimg2 = abs(outimg2);
+%remove negative val
+hrznDerivatived = abs(hrznDerivatived);
+verDerivatived = abs(verDerivatived);
 
-%uint型に変換
-outimg1=uint8(outimg1);
-outimg2=uint8(outimg2);
+%cast to uint8
+hrznDerivatived = uint8(hrznDerivatived);
+verDerivatived = uint8(verDerivatived);
 
-figure;
- imshow(outimg1);
- imwrite(outimg1,'kadai3_1.bmp');
+figure('Name', '水平方向微分フィルタ');
+imshow(hrznDerivatived);
+imwrite(hrznDerivatived, 'horizontalDerivatived.bmp');
  
- figure;
- imshow(outimg2);
- imwrite(outimg2,'kadai3_2.bmp');
+figure('Name', '垂直方向微分フィルタ');
+imshow(verDerivatived);
+imwrite(verDerivatived, 'verticalDerivatived.bmp');
+
 

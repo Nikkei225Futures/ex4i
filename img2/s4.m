@@ -1,29 +1,35 @@
 clear;
 
-img=imread('kut.jpg');
-red=img(:,:,1);
-green=img(:,:,2);
-blue=img(:,:,3);
-gray=0.3*red+0.59*green+0.11*blue;
+img = imread('kut.jpg');
+red = img(:,:,1);
+green = img(:,:,2);
+blue = img(:,:,3);
+gray = 0.3*red+0.59*green+0.11*blue;
 
-%ラプラシアンフィルタの生成(3*3行列)
-fil1=[1 1 1;1 -8 1;1 1 1];
+%meke laplacian filter
+laplacianFilter = [1 1 1;1 -8 1;1 1 1];
 
-%ラプラシアンフィルタをかける
-outimg1 = filter2(fil1,gray);
+%apply laplacian filter
+filteredImg = filter2(laplacianFilter,gray);
 
-%結果に負の値が含まれているため,abs関数を用いて絶対値をとる
-outimg1 = abs(outimg1);
+%remove negative value
+filteredImg = abs(filteredImg);
 
-%uint型に変換
-outimg1=uint8(outimg1);
+%cast to uing8
+filteredImg = uint8(filteredImg);
 
-%閾値処理を行う
-logical = outimg1 < 128;  
-outimg1(logical) = 0;        %1が格納されている
-outimg1(not(logical)) = 255;  %0が格納されている
+figure('Name', 'ラプラシアンフィルタ');
+imshow(filteredImg);
 
-figure;
- imshow(outimg1);
- imwrite(outimg1,'kadai4_1.bmp');
+%if filtered img < 128, output = 0(black)
+%else, output = 255(white)
+logical = filteredImg < 128;  
+filteredImg(logical) = 0;        
+filteredImg(not(logical)) = 255;
 
+figure('Name', 'ラプラシアンフィルタ+閾値処理');
+imshow(filteredImg);
+imwrite(filteredImg,'laplacianFiltered.bmp');
+
+%ラプラシアンフィルタを適用したときに取り得る値は255を超える可能性がある
+%->最小値-最大値を正規化する必要があるが、検出する境界線が薄くなる事もあるので注意が必要

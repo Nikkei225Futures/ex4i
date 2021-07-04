@@ -1,64 +1,62 @@
 close all;
 clear;
 
-img=imread('kadai1_1.bmp');  
-img2=imread('kadai1_2.bmp'); 
+imgImpulse = imread('grayImpulseNoise.bmp');
+imgGaussian = imread('grayGaussianNoise.bmp');
+
+avgFilter = [1/9 1/9 1/9;1/9 1/9 1/9;1/9 1/9 1/9];    % filter(average)
+
+%filtering each img which has noise
+averagedImpulse = filter2(avgFilter,imgImpulse);
+averagedGaussian = filter2(avgFilter,imgGaussian);
+averagedImpulse = uint8(averagedImpulse);
+averagedGaussian = uint8(averagedGaussian);
+
+figure('Name', 'å¹³æ»‘åŒ–ãƒ•ã‚£ãƒ«ã‚¿xã‚¤ãƒ³ãƒ‘ãƒ«ã‚¹é›‘éŸ³');
+imshow(averagedImpulse);
+imwrite(averagedImpulse, 'averagedImpulseNoise.bmp');
+
+figure('Name', 'å¹³æ»‘åŒ–ãƒ•ã‚£ãƒ«ã‚¿xç™½è‰²ã‚¬ã‚¦ã‚¹é›‘éŸ³');
+imshow(averagedGaussian);
+imwrite(averagedGaussian,'averagedGaussianNoise.bmp');
+
+%read gray img which has 2 noises
+impulseNoise = imread('grayImpulseNoise.bmp');
+gaussianNoise = imread('grayGaussianNoise.bmp');
+midianizedImpulse = impulseNoise;
+medianizedGaussian = gaussianNoise;
 
 
-fil1=[1/9 1/9 1/9;1/9 1/9 1/9;1/9 1/9 1/9]; 
-outimg1 = filter2(fil1,img);
-outimg2 = filter2(fil1,img2);
-outimg1=uint8(outimg1);
-outimg2=uint8(outimg2);
+[height width] = size(impulseNoise);
 
- figure('Name', '•½ŠŠ‰»ƒtƒBƒ‹ƒ^xƒCƒ“ƒpƒ‹ƒXG‰¹');
- imshow(outimg1);
- imwrite(outimg1,'kadai2_1.bmp');
- 
- 
- figure('Name', '•½ŠŠ‰»ƒtƒBƒ‹ƒ^x”’FƒKƒEƒXG‰¹');
- imshow(outimg2);
- imwrite(outimg2,'kadai2_2.bmp');
- 
- 
- outimg3=imread('kadai1_1.bmp');  
- outimg4=imread('kadai1_2.bmp'); 
- out3=outimg3;   
- out4=outimg4;
- 
- 
- [height width] = size(outimg3); 
- for y =2:height-1
-     for x = 2:width-1      
-         a = outimg3(y-1:y+1,x-1:x+1);
-         b = outimg4(y-1:y+1,x-1:x+1);
-         
-         A = reshape(a,[1,9]);
-         B = reshape(b,[1,9]);
-         
-         
-         out3(y,x) = median(A);
-         out4(y,x) = median(B); 
-      
-     end
- end
- 
- %outimg3=uint8(out3);
- %outimg4=uint8(out4);
+%determine value of target pixel to get near 8+1 pixels
+for y = 2:height-1
+    for x = 2:width-1
+        %get target pixels(3x3)
+        impulse3x3 = impulseNoise(y-1:y+1,x-1:x+1);
+        gaussian3x3 = gaussianNoise(y-1:y+1,x-1:x+1);
+        
+        %reshape 3x3 -> 1x9
+        impulse1x9 = reshape(impulse3x3,[1,9]);
+        gaussian1x9 = reshape(gaussian3x3,[1,9]);
+        
+        %apply median filter to target
+        midianizedImpulse(y,x) = median(impulse1x9);
+        medianizedGaussian(y,x) = median(gaussian1x9);
+        
+    end
+end
 
- figure('Name', 'ƒƒfƒBƒAƒ“ƒtƒBƒ‹ƒ^xƒCƒ“ƒpƒ‹ƒXG‰¹');
- imshow(out3);
- imwrite(out3,'kadai2_3.bmp');
- 
- figure('Name', 'ƒƒfƒBƒAƒ“ƒtƒBƒ‹ƒ^x”’FƒKƒEƒXG‰¹');
- imshow(out4);
- imwrite(out4,'kadai2_4.bmp');
- 
- %å¹³æ»‘åŒ–ãƒ•ã‚£ãƒ«ã‚¿ è¼ªéƒ­ãŒã?ã£ãã‚Šã—ãªã?å‘¨å›²ã®ç”»ç´??å½±éŸ¿ã‚’ã†ã‘ã‚‹)ãŸã‚ã¼ã‚?‘ã‚?  %ã‚¤ãƒ³ãƒ‘ãƒ«ã‚¹:
-  %ç™½è‰²ã‚¬ã‚¦ã‚¹é›‘éŸ³:
- %•½ŠŠ‰»ƒtƒBƒ‹ƒ^‚Í—ÖŠs‚ª‚Í‚Á‚«‚è‚¢‚È‚¢BüˆÍ‚Ì‰æ‘f‚Ì‰e‹¿‚ğó‚¯‚é‚½‚ß‚Ú‚â‚¯‚é
- %ƒƒfƒBƒAƒ“ƒtƒBƒ‹ƒ^: G‰¹‚Ì’l
- 
- %ãƒ¡ãƒ?‚£ã‚¢ãƒ³ãƒ•ã‚£ãƒ«ã‚¿
-  %ã‚¤ãƒ³ãƒ‘ãƒ«ã‚¹:é›‘éŸ³ã®å€¤ã?,255ã?‹ã‚‰ä¸­å¤®å€¤ã‚’ã¨ã‚‹ã¨ãã«é›‘éŸ³ãŒå«ã¾ã‚Œãªã?Ÿã‚?›‘éŸ³ã‚’é™¤å»ã§ãã‚‹
-  %ç™½è‰²ã‚¬ã‚¦ã‚¹é›‘éŸ³:é›‘éŸ³ã‚’åŠ ç®—ã™ã‚? 
+%outimg3 = uint8(out3);
+%outimg4 = uint8(out4);
+
+figure('Name', 'ãƒ¡ãƒ‡ã‚£ã‚¢ãƒ³ãƒ•ã‚£ãƒ«ã‚¿xã‚¤ãƒ³ãƒ‘ãƒ«ã‚¹é›‘éŸ³');
+imshow(midianizedImpulse);
+imwrite(midianizedImpulse, 'medianizedImpulseNoise.bmp');
+
+figure('Name', 'ãƒ¡ãƒ‡ã‚£ã‚¢ãƒ³ãƒ•ã‚£ãƒ«ã‚¿xç™½è‰²ã‚¬ã‚¦ã‚¹é›‘éŸ³');
+imshow(medianizedGaussian);
+imwrite(medianizedGaussian, 'medianizedGaussianNoise.bmp');
+
+%å¹³æ»‘åŒ–ãƒ•ã‚£ãƒ«ã‚¿ã¯è¼ªéƒ­ãŒã¯ã£ãã‚Šã„ãªã„ã€‚å‘¨å›²ã®ç”»ç´ ã®å½±éŸ¿ã‚’å¤§ããå—ã‘ã‚‹ãŸã‚ã¼ã‚„ã‘ã‚‹
+%ç”»åƒã®ç¸ã®å‡¦ç†ã¯ä»Šå›ã¯ãƒã‚¤ã‚ºã®ç”»åƒã‚’ãã®ã¾ã¾å‡ºåŠ›

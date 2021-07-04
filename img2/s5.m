@@ -1,31 +1,29 @@
 clear;
+close all;
 
-img=imread('sc1.png');
+faceImg = imread('thispersondoesnotexist.jpg');
 
-%RGB色空間からHSV色空間へ変換
-img=rgb2hsv(img);
+%rgb -> hsv
+faceImg = rgb2hsv(faceImg);
 
-%論理配列を用いて,肌色領域を抽出するフィルタを作成
-filter1=img(:,:,1) < 0.10;   %色相1
-filter2=img(:,:,1) > 0.01;   %色相2
-filter3=img(:,:,2) > 0.25;   %彩度
-filter4=img(:,:,3) > 0.20;   %明度
+%make logical filter
+hueFilter = faceImg(:,:,1) < 0.10;   %色相
+saturationFilter = faceImg(:,:,2) > 0.2;   %彩度
+brightnessFilter = faceImg(:,:,3) > 0.1;   %明度
+filter = hueFilter & saturationFilter & brightnessFilter;
 
-filter=filter1 & filter2 & filter3 & filter4;
+faceImg = hsv2rgb(faceImg); %hsv -> rgb
 
-%元画像とフィルタをかける
-V=img(:,:,3);
-V(~(filter)) = 0;
-img(:,:,3) = V;
-
-%作成した画像をHSV色空間からRGB色空間へ変換
-img=hsv2rgb(img);
-
+%apply filter to each color
+faceImg(:,:,1) = faceImg(:,:,1) .* filter;
+faceImg(:,:,2) = faceImg(:,:,2) .* filter;
+faceImg(:,:,3) = faceImg(:,:,3) .* filter;
 
 figure;
-imshow(img);
-imwrite(img,'kadai5_1.bmp');
+imshow(faceImg);
+imwrite(faceImg,'skinFiltered.bmp');
 
+%figure;
+%imshow(filter);
 
-
-
+%rgbだと、明度を表現しにくいのでhsv色空間を使うとよい(影などは色相や彩度は同じだが、明度が大きく異なる)
