@@ -56,8 +56,6 @@ filtered50Freq = shifted .* filter50;
 filteredPower10 = abs(filtered10Freq).^2;
 filteredPower50 = abs(filtered50Freq).^2;
 
-
-
 %freq -> img
 ifftshifted10 = ifftshift(filtered10Freq);
 ifftshifted50 = ifftshift(filtered50Freq);
@@ -73,16 +71,20 @@ figure;
 subplot(2,2,1);
 colormap(gray);
 imagesc(log(filteredPower10));
+title('周波数成分*LPF(r=10)');
 
 subplot(2,2,2);
 colormap(gray);
 imagesc(filtered10img);
+title('LPF適用後の画像(r=10)');
 
 subplot(2,2,3);
 colormap(gray);
 imagesc(log(filteredPower50));
+title('周波数成分*LPF(r=50)');
 
 subplot(2,2,4);
 colormap(gray);
 imagesc(filtered50img);
+title('LPF適用後の画像(r=50)');
 
