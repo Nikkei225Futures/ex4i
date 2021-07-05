@@ -83,6 +83,6 @@ pspectrum(sawtoothMF, Fs, 'spectrogram', 'OverlapPercent', 0, 'Leakage', 1, 'Min
 title("missingfundamental");
 
 %sound(sawtoothWave,Fs);%ただのノコギリ波
-%sound(sawtoothMF,Fs);%ノコギリ波から基本周波数を抜いた音(ミッシングファンダメンタル)
+sound(sawtoothMF,Fs);%ノコギリ波から基本周波数を抜いた音(ミッシングファンダメンタル)
 
 %基本周波数を抜いた音の方が少し高く聞こえる

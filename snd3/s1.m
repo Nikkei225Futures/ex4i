@@ -38,7 +38,7 @@ end
 
 for k=2:numLoops
     ft=sin(2*pi*(2*k-1)*f*t+rand(1)*2*pi)/(2*k-1);
-    s=squarePhiRand+ft; 
+    squarePhiRand=squarePhiRand+ft; 
 end
 
 
@@ -113,10 +113,10 @@ end
 
 
 
-%sound(y1,Fs);
-%sound(y2,Fs);
-%sound(y3,Fs);
-%sound(y4,Fs);
+%sound(pureSawtooth,Fs);
+%sound(sawtoothPhi1,Fs);
+%sound(sawtoothPhi2,Fs);
+%sound(sawtoothPhiRand,Fs);
 
 
 figure;

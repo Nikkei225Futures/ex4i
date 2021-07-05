@@ -54,6 +54,9 @@ synISptl = synISptl/(length(sound2)/2);
 %sound(a,Fs1);
 %sound(i,Fs2);
 
+%sound(a,Fs1);
+%sound(i,Fs2);
+
 %%% plots from here %%%
 figure;
 subplot(2,1,1);

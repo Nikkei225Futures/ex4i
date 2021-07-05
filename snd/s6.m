@@ -14,8 +14,9 @@ xlabel('時間[s]');
 ylabel('振幅');
 %title('白色ガウス雑音');
 
-ranks=100;                                %ヒストグラムを何段階に分割するのか
-[h,c]=hist(whiteGaussianNoise,ranks);%h:各スロットの頻度,c:各スロットの中心値
+%make histgram
+ranks=100; 
+[h,c]=hist(whiteGaussianNoise,ranks);
 
 figure;
 %subplot(2,1,2);
