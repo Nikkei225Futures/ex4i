@@ -56,13 +56,7 @@ filtered50Freq = shifted .* filter50;
 filteredPower10 = abs(filtered10Freq).^2;
 filteredPower50 = abs(filtered50Freq).^2;
 
-figure;
-colormap(gray);
-imagesc(log(filteredPower10));
 
-figure;
-colormap(gray);
-imagesc(log(filteredPower50));
 
 %freq -> img
 ifftshifted10 = ifftshift(filtered10Freq);
@@ -74,11 +68,21 @@ filtered50img = ifft2(ifftshifted50);
 filtered10img = real(filtered10img);
 filtered50img = real(filtered50img);
 
+%plots
 figure;
+subplot(2,2,1);
+colormap(gray);
+imagesc(log(filteredPower10));
+
+subplot(2,2,2);
 colormap(gray);
 imagesc(filtered10img);
 
-figure;
+subplot(2,2,3);
+colormap(gray);
+imagesc(log(filteredPower50));
+
+subplot(2,2,4);
 colormap(gray);
 imagesc(filtered50img);
 
