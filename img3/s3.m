@@ -15,9 +15,10 @@ for y = 1:height
     for x = 1:width
         if(y > centerH-15 && y < centerH+15 && x > centerW - 30 && x < centerW + 30)
             img00(y,x) = 1;
-        else if(y > centerH-15+60 && y < centerH+15+60 && x > centerW - 30+60 && x < centerW + 30+60)
+        end
+        
+        if(y > centerH-15+60 && y < centerH+15+60 && x > centerW - 30+60 && x < centerW + 30+60)
                 img6060(y,x) = 1;
-            end
         end
     end
 end
