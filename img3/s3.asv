@@ -15,10 +15,9 @@ for y = 1:height
     for x = 1:width
         if(y > centerH-15 && y < centerH+15 && x > centerW - 30 && x < centerW + 30)
             img00(y,x) = 1;
-        end
-        
-        if(y > centerH-15+60 && y < centerH+15+60 && x > centerW - 30+60 && x < centerW + 30+60)
+        else if(y > centerH-15+60 && y < centerH+15+60 && x > centerW - 30+60 && x < centerW + 30+60)
                 img6060(y,x) = 1;
+            end
         end
     end
 end
@@ -53,28 +52,4 @@ colormap(gray);
 imagesc(log(img6060power));
 %}
 
-figure;
-subplot(2,2,1);
-colormap(gray);
-imagesc(img00);
-title('(0,0)');
 
-subplot(2,2,2);
-colormap(gray);
-imagesc(log(img00Power));
-title('(0,0) power');
-
-subplot(2,2,3);
-colormap(gray);
-imagesc(img6060);
-title('(60,60)');
-
-subplot(2,2,4);
-colormap(gray);
-imagesc(log(img6060power));
-title('(60,60) power');
-
-%パワースペクトルは見た目が同じ
-%->パワースペクトルには振幅と周波数を表す. 画像は長方形の位置が違う(位相)
-%パワースペクトルには位相の情報は残っていないので(複素数値に位相の情報がある)
-%2つのパワースペクトルの画像の違いは位相

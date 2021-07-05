@@ -56,14 +56,6 @@ filtered50Freq = shifted .* filter50;
 filteredPower10 = abs(filtered10Freq).^2;
 filteredPower50 = abs(filtered50Freq).^2;
 
-figure;
-colormap(gray);
-imagesc(log(filteredPower10));
-
-figure;
-colormap(gray);
-imagesc(log(filteredPower50));
-
 %freq -> img
 ifftshifted10 = ifftshift(filtered10Freq);
 ifftshifted50 = ifftshift(filtered50Freq);
@@ -74,11 +66,30 @@ filtered50img = ifft2(ifftshifted50);
 filtered10img = real(filtered10img);
 filtered50img = real(filtered50img);
 
+%plots
 figure;
+subplot(2,2,1);
+colormap(gray);
+imagesc(log(filteredPower10));
+title('周波数成分*LPF(r=10)');
+
+subplot(2,2,2);
 colormap(gray);
 imagesc(filtered10img);
+title('LPF適用後の画像(r=10)');
 
-figure;
+subplot(2,2,3);
+colormap(gray);
+imagesc(log(filteredPower50));
+title('周波数成分*LPF(r=50)');
+
+subplot(2,2,4);
 colormap(gray);
 imagesc(filtered50img);
+title('LPF適用後の画像(r=50)');
+
+
+
+%半径10画素のLPFは, 低周波数成分のみを取り出すので, 結果画像はぼやけたような画像になる
+%半径50画素のLPFは, 半径10画素より高周波成分を含むので, 結果は半径10LPFを適用した画像より鮮明になる.
 
