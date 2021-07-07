@@ -1,0 +1,42 @@
+%必ず前の課題を実行してからこのスクリプトを実行すること. 変数の引継ぎ有.
+clearvars -except swpl10 swpr10 swpl45 swpr45;
+close all;
+
+%make rectangle
+rectangle = ones(20, 400);
+rectangle = rectangle .* 0.
+for k = 1:20
+    for l = 150:250
+        rectangle(k, l) = 0;
+    end
+end
+
+%figure from here, no scaling(average bright = half of maximum bright)
+figure('Name', 'imgs');
+    subplot(2,2,1);
+    colormap(gray(256));
+    image(swpl10);
+    title('左に10度傾いた正弦波縞');
+    axis off;
+    axis image;
+
+    subplot(2,2,2);
+    colormap(gray(256));
+    image(swpr10);
+    title('右に10度傾いた正弦波縞');
+    axis off;
+    axis image;
+    
+    subplot(2,2,3);
+    colormap(gray);
+    image(swpl45);
+    title('左に45度傾いた正弦波縞');
+    axis off;
+    axis image;
+    
+    subplot(2,2,4);
+    colormap(gray);
+    image(swpr45);
+    title('右に45度傾いた正弦波縞');
+    axis off;
+    axis image;
