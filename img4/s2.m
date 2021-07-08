@@ -1,4 +1,4 @@
-%方位残効:
+%方位残効
 %ある方位＋空間周波数に対する選択性を持つ複雑型細胞は、その方位＋空間周波数を見たとき, 発火頻度が高くなる
 %しかし, ある空間周波数と方位の縞を見続けると, 複雑型細胞が順応し, 発火頻度が低下する
 %このあと, 垂直の縞を見ると, ある方位に選択性を持つ複雑型細胞は発火頻度が低下したままになる. 
@@ -236,12 +236,12 @@ finish.WindowState = 'maximized';
     axis off;
     axis image;
 
-waitsec = 10;
+waitsec = 60;
 stim = figure;
 stim.WindowState = 'maximized';
     colormap(gray(256));
-    %image(wholeImg45raw);
-    image(wholeImg10);
+    image(wholeImg45raw);
+    %image(wholeImg10);
     axis off;
     axis image;
     pause(waitsec);
