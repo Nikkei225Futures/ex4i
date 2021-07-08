@@ -42,6 +42,10 @@ swpl30FreqShifted = fftshift(swpl30Freq);
 swpr60Freq = fft2(phSinWavePhiRight60);
 swpr60FreqShifted = fftshift(swpr60Freq);
 
+%get non-filtered power
+nfp30Power = abs(swpl30FreqShifted).^2;
+nfp60Power = abs(swpr60FreqShifted).^2;
+
 %apply lpf
 swpl30FreqFiltered = lpf .* swpl30FreqShifted;
 filteredPower1 = abs(swpl30FreqFiltered).^2;
@@ -76,18 +80,17 @@ figure();
     title('右に60度傾いた正弦波縞');
     axis off;
     axis image;
-    
     %{
     subplot(2,2,3);
     colormap(gray);
-    imagesc(log(filteredPower1));
+    imagesc(nfp30Power);
     title('左に30度傾いた正弦波縞power');
     axis off;
     axis image;
     
     subplot(2,2,4);
     colormap(gray);
-    imagesc(log(filteredPower2));
+    imagesc(nfp60Power);
     title('右に60度傾いた正弦波縞power');
     axis off;
     axis image;

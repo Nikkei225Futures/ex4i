@@ -1,3 +1,11 @@
+%方位残効:
+%ある方位＋空間周波数に対する選択性を持つ複雑型細胞は、その方位＋空間周波数を見たとき, 発火頻度が高くなる
+%しかし, ある空間周波数と方位の縞を見続けると, 複雑型細胞が順応し, 発火頻度が低下する
+%このあと, 垂直の縞を見ると, ある方位に選択性を持つ複雑型細胞は発火頻度が低下したままになる. 
+%すると, 逆方向の方位に選択性を持つ複雑型細胞の発火頻度の方が順応した複雑型細胞の発火頻度より高くなり, 
+%結果として, 逆方向に方位のある縞が知覚される.
+%ただし, 順応している時間には限りがあるので, ある程度時間が経つと方位残効の効果はなくなる.
+
 clear;
 
 height = 400;
@@ -177,7 +185,7 @@ figure('Name', '+-0deg');
     axis off;
     axis image;
 
-clearvars -except swpl10 swpr10 swpl45 swpr45 swp0;
+clearvars -except swpl10 swpr10 swpl45 swpr45 swp0 phSinWave*;
 close all;
 
 %margin between stimlus and rectangle, circle
@@ -213,14 +221,18 @@ end
 
 %make each stim image
 wholeImg10 = [swpl10; margin; rectangle; margin; swpr10];
+wholeImg10raw = [phSinWavePhiLeft10; margin; rectangle; margin; phSinWavePhiRight10];
 wholeImg45 = [swpl45; margin; rectangle; margin; swpr45];
+wholeImg45raw = [phSinWavePhiLeft45; margin; rectangle; margin; phSinWavePhiRight45];
 fin = [swp0; margin; circle; margin; swp0];
+finRaw = [phSinWavePhi0; margin; circle; margin; phSinWavePhi0];
 
 %experiment 
 finish = figure;
 finish.WindowState = 'maximized';
     colormap(gray(256));
     image(fin);
+    %image(finRaw);
     axis off;
     axis image;
 
@@ -228,7 +240,7 @@ waitsec = 10;
 stim = figure;
 stim.WindowState = 'maximized';
     colormap(gray(256));
-    %image(wholeImg45);
+    %image(wholeImg45raw);
     image(wholeImg10);
     axis off;
     axis image;
