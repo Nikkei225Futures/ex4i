@@ -7,6 +7,6 @@ function getTime() {
     var sec = dateTime.getSeconds();
     var str = document.createTextNode(hour + "時" + min + "分" + sec + "秒");
     newList.appendChild(str);
-    target.appendChild(newList);
-
+    //target.appendChild(newList);
+    document.getElementById("list").appendChild(newList); //decent way
 }
