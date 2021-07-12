@@ -8,5 +8,5 @@ function getTime() {
     var str = document.createTextNode(hour + "時" + min + "分" + sec + "秒");
     newList.appendChild(str);
     target.appendChild(newList);
-    
+
 }

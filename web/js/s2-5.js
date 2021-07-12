@@ -19,11 +19,16 @@ function invSortList(){
     //console.log(children[children.length-1].innerHTML);
     
     //inverse sort
-    for(let i = 0; i < children.length/2; i++){
-        var temp = children[i].innerHTML;
-        var str = children[children.length-1-i].innerHTML;
-        children[i].innerHTML = str;
-        children[children.length-1-i].innerHTML = temp;
+
+    let i = 0;
+    let j = children.length-1;
+
+    for(k = 0; k < (children.length-1)/2; k++){
+        temp = children[i].innerHTML;
+        children[i].innerHTML = children[j].innerHTML;
+        children[j].innerHTML = temp;
+        i++;
+        j--;
     }
 
 }

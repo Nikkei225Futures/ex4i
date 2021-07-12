@@ -1,10 +1,10 @@
-window.onload = function(){
+window.onload = function () {
     var ua = navigator.userAgent;
     var target = document.getElementById("browser");
 
-    if(ua.indexOf("Firefox") != -1){
+    if (ua.indexOf("Firefox") != -1) {
         target.innerHTML = "今開いているブラウザはFirefoxです";
-    }else{
+    } else {
         target.innerHTML = "今開いているブラウザはFirefoxではありません";
     }
 }
