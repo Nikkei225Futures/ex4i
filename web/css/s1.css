@@ -17,3 +17,7 @@
 .mainContents .description{
     margin-top: 5px;
 }
+
+.mainContents .description span{
+    margin-right: 5px;
+}
