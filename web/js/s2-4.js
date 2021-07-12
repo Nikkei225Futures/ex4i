@@ -1,15 +1,11 @@
 function getTime() {
     var target = document.getElementById("list");
     var newList = document.createElement("li");
-    newList.innerHTML = new Date();
+    var dateTime = new Date();
+    var hour = dateTime.getHours();
+    var min = dateTime.getMinutes();
+    var sec = dateTime.getSeconds();
+    newList.innerHTML = hour + "時" + min + "分" + sec + "秒";
     target.appendChild(newList);
     
-}
-
-function clickHere() {
-    var target = document.getElementById("list");
-    var newList = document.createElement("li");
-    newList.innerHTML = "clickHere";
-    target.appendChild(newList);
-
 }

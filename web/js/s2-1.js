@@ -3,8 +3,8 @@ window.onload = function(){
     var target = document.getElementById("browser");
 
     if(ua.indexOf("Firefox") != -1){
-        target.innerHTML = "you are accessing this page via Firefox";
+        target.innerHTML = "今開いているブラウザはFirefoxです";
     }else{
-        target.innerHTML = "you are NOT accessing this page via Firefox";
+        target.innerHTML = "今開いているブラウザはFirefoxではありません";
     }
 }

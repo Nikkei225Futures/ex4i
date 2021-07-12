@@ -1,15 +1,19 @@
 .mainContents .require{
-    color: tomato;
+    color: red;
 }
 
 .mainContents .sk{
-    background-color: pink;
+    background-color: greenyellow;
 }
 
 .mainContents .sh{
-    background-color: aquamarine
+    background-color: lightskyblue;
 }
 
 .mainContents .sr{
-    background-color: steelblue;
+    background-color: pink;
+}
+
+.mainContents .description{
+    margin-top: 5px;
 }
