@@ -5,7 +5,8 @@ function getTime() {
     var hour = dateTime.getHours();
     var min = dateTime.getMinutes();
     var sec = dateTime.getSeconds();
-    newList.innerHTML = hour + "時" + min + "分" + sec + "秒";
+    var str = document.createTextNode(hour + "時" + min + "分" + sec + "秒");
+    newList.appendChild(str);
     target.appendChild(newList);
     
 }
