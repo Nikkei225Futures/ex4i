@@ -7,15 +7,18 @@
 }
 
 .mainContents .sk{
-    background-color: green;
+    background-color: yellowgreen;
+    text-decoration: underline;
 }
 
 .mainContents .sh{
-    background-color: orangered;
+    background-color: rgb(206, 0, 0);
+    text-decoration: underline double;
 }
 
 .mainContents .sr{
     background-color: blue;
+    text-decoration: underline dotted;
 }
 
 .mainContents .description{

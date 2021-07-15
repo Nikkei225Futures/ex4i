@@ -56,8 +56,8 @@ html5jp.graph.line.prototype.draw = function(items, inparams) {
 		gbackgroundColor: "#dddddd",
 		gGradation: true,
 		lineWidth: 4,
-		dotRadius: 6,
-		dotType: "square",
+		dotRadius: 8,
+		dotType: ["square", "disk", "triangle"],
 		hLineWidth: 2,
 		hLineType: "dotted",
 		hLineColor: "#aaaaaa",
@@ -209,7 +209,7 @@ html5jp.graph.line.prototype.draw = function(items, inparams) {
 		}
 	}
 	/* 各項目のデフォルト色を定義 */
-	var colors = ["255,45,0", "0,255,255", "60,179,113", "255,156,0", "33,156,0", "33,41,107", "115,0,90", "132,0,0", "165,99,0", "24,123,0"];
+	var colors = ["0,0,255", "154,205,50", "206,0,0", "255,156,0", "33,156,0", "33,41,107", "115,0,90", "132,0,0", "165,99,0", "24,123,0"];
 	/* 折線グラフを描写 */
 	var plots = new Array();
 	for(var i=0; i<item_num; i++) {

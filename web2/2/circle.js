@@ -51,10 +51,10 @@ html5jp.graph.circle.prototype.draw = function(items, inparams) {
 		backgroundColor: null,
 		shadow: true,
 		border: true,
-		caption: false,
+		caption: true,
 		captionNum: true,
 		captionRate: true,
-		fontSize: "22px",
+		fontSize: "25px",
 		fontFamily: "Arial,sans-serif",
 		textShadow: true,
 		captionColor: "#ffffff",
@@ -149,7 +149,7 @@ html5jp.graph.circle.prototype.draw = function(items, inparams) {
 		throw new Error('invalid graph item data.');
 	}
 	/* 各項目のデフォルト色を定義 */
-	var colors = ["255,45,0", "0,255,255", "255,255,0", "60,179,113", "33,156,0", "33,41,107", "115,0,90", "132,0,0", "165,99,0", "24,123,0"];
+	var colors = ["0,0,255", "154,205,50", "206,0,0", "200,200,200", "33,156,0", "33,41,107", "115,0,90", "132,0,0", "165,99,0", "24,123,0"];
 	/* 円グラフを描写 */
 	var rates = new Array();
 	var startAngle = this._degree2radian(params.startAngle);
