@@ -1,0 +1,35 @@
+.mainContents .require{
+    font-weight: bold;
+}
+
+.mainContents table td, .description{
+    color: white;
+}
+
+.mainContents .sk{
+    background-color: green;
+}
+
+.mainContents .sh{
+    background-color: orangered;
+}
+
+.mainContents .sr{
+    background-color: blue;
+}
+
+.mainContents .description{
+    margin-top: 5px;
+}
+
+.mainContents .description span{
+    margin-right: 5px;
+}
+
+.mainContents .description .req-desc{
+    color: black;
+}
+
+.mainContents .description .require{
+    display: none;
+}
