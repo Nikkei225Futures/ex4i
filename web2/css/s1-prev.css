@@ -1,0 +1,23 @@
+.mainContents .require{
+    color: #ff0000;
+}
+
+.mainContents .sk{
+    background-color: #55bb55;
+}
+
+.mainContents .sh{
+    background-color: #ff9900;
+}
+
+.mainContents .sr{
+    background-color: #66aaaa;
+}
+
+.mainContents .description{
+    margin-top: 5px;
+}
+
+.mainContents .description span{
+    margin-right: 5px;
+}
