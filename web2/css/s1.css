@@ -1,18 +1,17 @@
-  
 .mainContents .require{
-    color: red;
+    color: #ff0000;
 }
 
 .mainContents .sk{
-    background-color: greenyellow;
+    background-color: green;
 }
 
 .mainContents .sh{
-    background-color: lightskyblue;
+    background-color: yellow;
 }
 
 .mainContents .sr{
-    background-color: pink;
+    background-color: skyblue;
 }
 
 .mainContents .description{
