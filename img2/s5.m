@@ -22,6 +22,7 @@ faceImg(:,:,3) = faceImg(:,:,3) .* filter;
 figure;
 imshow(faceImg);
 imwrite(faceImg,'skinFiltered.bmp');
+imwrite(faceImg,'skinFiltered.jpeg', "JPEG");
 
 %figure;
 %imshow(filter);

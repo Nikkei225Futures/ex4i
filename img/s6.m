@@ -27,7 +27,7 @@ diff_uint8 = uint8(abs(difDouble));
 
 imshow(diff_uint8);
 
-
+imwrite(diff_uint8,'diff.jpeg', "JPEG");
 
 
 

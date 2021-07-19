@@ -9,10 +9,20 @@ freq = fft2(imgLenna);
 
 shifted = fftshift(freq);
 
-figure;
-colormap(gray);
+%figure;
+%colormap(gray);
 originPower = abs(shifted).^2;
-imagesc(log(originPower));
+%imagesc(log(originPower));
+
+figure;
+    subplot(1, 2, 1);
+    colormap(gray);
+    imagesc(imgLenna);
+    title('a. 画像');
+    subplot(1, 2, 2);
+    colormap(gray);
+    imagesc(log(originPower));
+    title('b. 周波数成分');
 
 [height width] = size(imgLenna);
 
@@ -71,22 +81,22 @@ figure;
 subplot(2,2,1);
 colormap(gray);
 imagesc(log(filteredPower10));
-title('周波数成分*LPF(r=10)');
+title('a. 周波数成分*LPF(r=10)');
 
 subplot(2,2,2);
 colormap(gray);
 imagesc(filtered10img);
-title('LPF適用後の画像(r=10)');
+title('b. LPF適用後の画像(r=10)');
 
 subplot(2,2,3);
 colormap(gray);
 imagesc(log(filteredPower50));
-title('周波数成分*LPF(r=50)');
+title('c. 周波数成分*LPF(r=50)');
 
 subplot(2,2,4);
 colormap(gray);
 imagesc(filtered50img);
-title('LPF適用後の画像(r=50)');
+title('d. LPF適用後の画像(r=50)');
 
 
 

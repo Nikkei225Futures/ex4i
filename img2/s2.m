@@ -15,10 +15,12 @@ averagedGaussian = uint8(averagedGaussian);
 figure('Name', '平滑化フィルタxインパルス雑音');
 imshow(averagedImpulse);
 imwrite(averagedImpulse, 'averagedImpulseNoise.bmp');
+imwrite(averagedImpulse, 's2-averagedImpulseNoise.jpeg', "JPEG");
 
 figure('Name', '平滑化フィルタx白色ガウス雑音');
 imshow(averagedGaussian);
 imwrite(averagedGaussian,'averagedGaussianNoise.bmp');
+imwrite(averagedGaussian,'s2-averagedGaussianNoise.jpeg', "JPEG");
 
 %read gray img which has 2 noises
 impulseNoise = imread('grayImpulseNoise.bmp');
@@ -53,10 +55,13 @@ end
 figure('Name', 'メディアンフィルタxインパルス雑音');
 imshow(midianizedImpulse);
 imwrite(midianizedImpulse, 'medianizedImpulseNoise.bmp');
+imwrite(midianizedImpulse, 's2-medianizedImpulseNoise.jpeg', "JPEG");
+
 
 figure('Name', 'メディアンフィルタx白色ガウス雑音');
 imshow(medianizedGaussian);
 imwrite(medianizedGaussian, 'medianizedGaussianNoise.bmp');
+imwrite(medianizedGaussian, 's2-medianizedGaussianNoise.jpeg', "JPEG");
 
 %平滑化フィルタは輪郭がはっきりいない。周囲の画素の影響を大きく受けるためぼやける
 %画像の縁の処理は今回はノイズの画像をそのまま出力

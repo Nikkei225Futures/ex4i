@@ -35,28 +35,28 @@ figure();
     subplot(2,2,1);
     colormap(gray(256));
     image(phSinWavePhiLeft30);
-    title('左に30度傾いた正弦波縞');
+    title('a. 左に30度傾いた正弦波縞');
     axis off;
     axis image;
     
     subplot(2,2,2);
     colormap(gray(256));
     image(phSinWavePhiRight60);
-    title('右に60度傾いた正弦波縞');
+    title('b. 右に60度傾いた正弦波縞');
     axis off;
     axis image;
     
     subplot(2,2,3);
     colormap(gray);
     imagesc(nfp30Power);
-    title('左に30度傾いた正弦波縞power');
+    title('c. 左に30度傾いた正弦波縞power');
     axis off;
     axis image;
     
     subplot(2,2,4);
     colormap(gray);
     imagesc(nfp60Power);
-    title('右に60度傾いた正弦波縞power');
+    title('d. 右に60度傾いた正弦波縞power');
     axis off;
     axis image;
     

@@ -19,7 +19,7 @@ grayImpulse(white) = 255;
 figure('Name', 'kut.jpg + インパルス雑音');
 imshow(grayImpulse);
 imwrite(grayImpulse, 'grayImpulseNoise.bmp');
-
+imwrite(grayImpulse, 's1-grayImpulseNoise.jpeg', "JPEG");
 
 %make white gaussian noise
 rndmVal2 = 10*randn(height, width);
@@ -29,6 +29,7 @@ outimg = uint8(outimg);
 figure('Name', 'kut.jpg + 白色ガウス雑音');
 imshow(outimg);
 imwrite(outimg, 'grayGaussianNoise.bmp');
+imwrite(outimg, 's1-grayGaussianNoise.jpeg', "JPEG");
 
 %インパルス雑音は0か1の極端な値を入れているから白と黒の雑音がはっきり確認できる
 %白色ガウス雑音は

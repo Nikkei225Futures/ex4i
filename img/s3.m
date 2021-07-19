@@ -29,3 +29,8 @@ imwrite(grayKut4bitInv,'grayKut4bitInv.bmp');
 imwrite(grayKut2bitInv,'grayKut2bitInv.bmp');
 imwrite(grayKut1bitInv,'grayKut1bitInv.bmp');
 
+imwrite(grayKut8bitInv,'grayKut8bitInv.jpeg', "JPEG");
+imwrite(grayKut4bitInv,'grayKut4bitInv.jpeg', "JPEG");
+imwrite(grayKut2bitInv,'grayKut2bitInv.jpeg', "JPEG");
+imwrite(grayKut1bitInv,'grayKut1bitInv.jpeg', "JPEG");
+

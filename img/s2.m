@@ -35,7 +35,10 @@ imwrite(gray4bit*(255/15),'grayKut4bit.bmp');
 imwrite(gray2bit*(255/3),'grayKut2bit.bmp');
 imwrite(gray1bit*255,'grayKut1bit.bmp');
 
-
+imwrite(gray,'grayKut8bit.jpeg', "JPEG");
+imwrite(gray4bit*(255/15),'grayKut4bit.jpeg', "JPEG");
+imwrite(gray2bit*(255/3),'grayKut2bit.jpeg', "JPEG");
+imwrite(gray1bit*255,'grayKut1bit.jpeg', "JPEG");
 
 
 

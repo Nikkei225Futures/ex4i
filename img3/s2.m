@@ -56,65 +56,65 @@ width = 256;
      subplot(2, 2, 1);
      colormap(gray);
      imagesc(img4);
-     title('横縞4本 with dc');
+     title('a. 横縞4本 with dc');
 
      subplot(2, 2, 2);
      colormap(gray);
      imagesc(img4ndc);
-     title('横縞4本, non dc');
+     title('b. 横縞4本, non dc');
  
      subplot(2, 2, 3);
      colormap(gray);
      imagesc(img4Power);
-     title('横縞4本power with dc');
+     title('c. 横縞4本power with dc');
 
      subplot(2, 2, 4);
      colormap(gray);
      imagesc(img4ndcPower);
-     title('横4本power non dc');
+     title('d. 横4本power non dc');
 
  
  figure;
      subplot(2,2,1);
      colormap(gray);
      imagesc(img16);
-     title('横縞16本 with dc');
+     title('a. 横縞16本 with dc');
 
      subplot(2,2,2);
      colormap(gray);
      imagesc(img16ndc);
-     title('横縞16本 non dc');
+     title('b. 横縞16本 non dc');
  
      subplot(2,2,3);
      colormap(gray);
      imagesc(img16Power);
-     title('横縞16本power with dc');
+     title('c. 横縞16本power with dc');
 
      subplot(2,2,4);
      colormap(gray);
      imagesc(img16ndcPower);
-     title('横縞16本power non dc');
+     title('d. 横縞16本power non dc');
  
  figure;
      subplot(2,2,1);
      colormap(gray);
      imagesc(img64);
-     title('横縞64本 with dc');
+     title('a. 横縞64本 with dc');
      
      subplot(2,2,2);
      colormap(gray);
      imagesc(img64ndc);
-     title('横縞64本 non dc');
+     title('b. 横縞64本 non dc');
  
      subplot(2,2,3);
      colormap(gray);
      imagesc(img64Power);
-     title('横縞64本power with dc');
+     title('c. 横縞64本power with dc');
 
      subplot(2,2,4);
      colormap(gray);
      imagesc(img64ndcPower);
-     title('横縞64本power non dc');
+     title('d. 横縞64本power non dc');
  
      %横縞では, パワースペクトルの縦方向に点が広がっている. 
      %周波数成分によってスペクトルの位置が異なる.

@@ -20,6 +20,7 @@ filteredImg = uint8(filteredImg);
 
 figure('Name', 'ラプラシアンフィルタ');
 imshow(filteredImg);
+imwrite(filteredImg,'s4-laplacianFiltered.jpeg', "JPEG");
 
 %if filtered img < 128, output = 0(black)
 %else, output = 255(white)
@@ -30,6 +31,7 @@ filteredImg(not(logical)) = 255;
 figure('Name', 'ラプラシアンフィルタ+閾値処理');
 imshow(filteredImg);
 imwrite(filteredImg,'laplacianFiltered.bmp');
+imwrite(filteredImg,'s4-laplacianFiltered-threshold128.jpeg', "JPEG");
 
 %ラプラシアンフィルタを適用したときに取り得る値は255を超える可能性がある
 %->最小値-最大値を正規化する必要があるが、検出する境界線が薄くなる事もあるので注意が必要

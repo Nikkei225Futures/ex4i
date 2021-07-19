@@ -27,7 +27,10 @@ img2(:,:,3)=red;
 figure('Name', '赤色チャネルと青色チャネルを入れ替えた画像');
 imshow(img2);
 
-
+imwrite(red, "s1-red.jpeg", "JPEG");
+imwrite(green, "s1-green.jpeg", "JPEG");
+imwrite(blue, "s1-blue.jpeg", "JPEG");
+imwrite(img2, "s1-swap.jpeg", "JPEG");
 
 
 

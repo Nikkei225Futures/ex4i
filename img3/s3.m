@@ -57,22 +57,22 @@ figure;
 subplot(2,2,1);
 colormap(gray);
 imagesc(img00);
-title('(0,0)');
+title('a. (0,0)');
 
 subplot(2,2,2);
 colormap(gray);
 imagesc(log(img00Power));
-title('(0,0) power');
+title('b. (0,0) power');
 
 subplot(2,2,3);
 colormap(gray);
 imagesc(img6060);
-title('(60,60)');
+title('c. (60,60)');
 
 subplot(2,2,4);
 colormap(gray);
 imagesc(log(img6060power));
-title('(60,60) power');
+title('d. (60,60) power');
 
 %パワースペクトルは見た目が同じ
 %->パワースペクトルには振幅と周波数を表す. 画像は長方形の位置が違う(位相)

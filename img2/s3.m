@@ -27,9 +27,11 @@ verDerivatived = uint8(verDerivatived);
 figure('Name', '水平方向微分フィルタ');
 imshow(hrznDerivatived);
 imwrite(hrznDerivatived, 'horizontalDerivatived.bmp');
+imwrite(hrznDerivatived, 's3-horizontalDerivatived.jpeg', "JPEG");
  
 figure('Name', '垂直方向微分フィルタ');
 imshow(verDerivatived);
 imwrite(verDerivatived, 'verticalDerivatived.bmp');
+imwrite(verDerivatived, 's3-verticalDerivatived.jpeg', "JPEG");
 
 

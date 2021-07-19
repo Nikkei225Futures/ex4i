@@ -13,3 +13,7 @@ Java バージョン: Java 1.8.0_202-b08 with Oracle Corporation Java HotSpot(TM) 64-
 
 processor: AMD Ryzen 7 3700X 8-Core Processor (16CPUs), ~3.6GHz
 memory: 16384MB RAM
+モニター1: JAPANNEXT JN-24VG144WQHDR(チップの種類: GeForce GTX 1070)
+モニター2: BenQ GL2250H(チップの種類: GeForce GTX 1070)
+モニター3: BenQ GL2250H(チップの種類: GeForce GTX 1070)
+モニター4: BenQ GW2255(チップの種類: GeForce GTX 1070)
