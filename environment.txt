@@ -5,7 +5,7 @@ Java バージョン: Java 1.8.0_202-b08 with Oracle Corporation Java HotSpot(TM) 64-
 
 processsor: Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz (2 CPUs), ~2.1GHz
 memory: 12288MB RAM
-
+モニター: optiplex 3280 aio 付属ディスプレイ
 env2-------------------------------------------------------------------
 MATLAB バージョン: 9.10.0.1669831 (R2021a) Update 2
 オペレーティング システム: Microsoft Windows 10 Pro Version 10.0 (Build 19042)
