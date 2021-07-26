@@ -1,0 +1,4 @@
+subject, practice/real, trial#, target/nontarget, target type, setsize, error, responsetime 
+1230394 , 1, 1, 1, 2, 4, 0, 729 
+1230394 , 1, 2, 2, 2, 16, 0, 373 
+

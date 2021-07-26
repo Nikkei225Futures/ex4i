@@ -48,3 +48,6 @@ subject, practice/real, trial#, target/nontarget, target type, setsize, error, r
 1230394 , 1, 1, 1, 1, 4, 0, 2635 
 1230394 , 1, 2, 1, 1, 4, 2, 534 
 
+1230394, 1, 1, 1, 2, 8, 0, 831 
+1230394, 1, 2, 2, 1, 8, 1, 568 
+

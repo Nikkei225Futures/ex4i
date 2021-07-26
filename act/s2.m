@@ -1,6 +1,6 @@
 N=240;
 setsize=[4,8,16];
-data=readmatrix('data1230394.txt');
+data=readmatrix('data1230373-backup.txt');
 
 target1_16=0;
 count1_16=0;
@@ -16,13 +16,13 @@ for i=13:252
                     target1_16=target1_16+data(i,8);
                     count1_16=count1_16+1;
                 else if(data(i,6)==8)
-                    target1_8=target1_8+data(i,8);
-                    count1_8=count1_8+1;
-                  else if(data(i,6)==4)
-                    target1_4=target1_4+data(i,8);
-                    count1_4=count1_4+1;
-                
-                      end
+                        target1_8=target1_8+data(i,8);
+                        count1_8=count1_8+1;
+                    else if(data(i,6)==4)
+                            target1_4=target1_4+data(i,8);
+                            count1_4=count1_4+1;
+                            
+                        end
                     end
                 end
             end
@@ -52,13 +52,13 @@ for i=13:252
                     target2_16=target2_16+data(i,8);
                     count2_16=count2_16+1;
                 else if(data(i,6)==8)
-                    target2_8=target2_8+data(i,8);
-                    count2_8=count2_8+1;
-                  else if(data(i,6)==4)
-                    target2_4=target2_4+data(i,8);
-                    count2_4=count2_4+1;
-                
-                      end
+                        target2_8=target2_8+data(i,8);
+                        count2_8=count2_8+1;
+                    else if(data(i,6)==4)
+                            target2_4=target2_4+data(i,8);
+                            count2_4=count2_4+1;
+                            
+                        end
                     end
                 end
             end
@@ -87,13 +87,13 @@ for i=13:252
                     target3_16=target3_16+data(i,8);
                     count3_16=count3_16+1;
                 else if(data(i,6)==8)
-                    target3_8=target3_8+data(i,8);
-                    count3_8=count3_8+1;
-                  else if(data(i,6)==4)
-                    target3_4=target3_4+data(i,8);
-                    count3_4=count3_4+1;
-                
-                      end
+                        target3_8=target3_8+data(i,8);
+                        count3_8=count3_8+1;
+                    else if(data(i,6)==4)
+                            target3_4=target3_4+data(i,8);
+                            count3_4=count3_4+1;
+                            
+                        end
                     end
                 end
             end
@@ -124,11 +124,11 @@ for i=13:252
                 else if(data(i,6)==8)
                     target4_8=target4_8+data(i,8);
                     count4_8=count4_8+1;
-                  else if(data(i,6)==4)
+                else if(data(i,6)==4)
                     target4_4=target4_4+data(i,8);
                     count4_4=count4_4+1;
-                
-                      end
+                            
+                        end
                     end
                 end
             end
