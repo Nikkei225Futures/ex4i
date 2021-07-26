@@ -1,0 +1,128 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%データ解析%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+clear;
+close all;
+
+N=20;  %試行回数(全20回)
+
+judgeData=csvread('exp4i_g04_08.csv');   %選択結果のデータの読み込み
+
+x=zeros(500,N+1);      %データの記録用
+y=[-998:2:0]';       %サンプリング周波数500Hzで1秒間(1000ミリ秒)だから2刻みで0まで
+result=[y x];        %データ記録用配列と時間配列を結合する
+
+%%%%%試行ごとにデータをまとめるfor文の開始%%%%%
+
+for count=1:N       %試行回数t(20回)の処理
+    trialData=csvread(['g04_08.asc_TRIAL_' num2str(count) '.csv']); %各試行のデータの読み込み
+    [height,width]=size(trialData);   %data2のサイズを取得
+    
+    sp=[trialData(1,1):2:trialData(height,1)]'; %data2の時間飛びがない正しい時間配列(2ms間隔)で作成
+    [sp_height, sp_width] = size(sp);
+    expos = zeros(sp_width, 5);
+    expos(:,1) = sp(count) - sp(sp_height);
+    
+    expos(:,2:4)=-1;              %exposの全行の2から4列(画面状態,視線方向,選択結果と視線方向の合致)に-1を設定
+    
+    %データがある場合には欠損値-1が上書きされて,データがなければ-1のままになる
+    
+    logic=ismember(sp,trialData(:,1));
+    %試行データの時間(data2の1列目)に対して全時間を探索するismemberを使用
+    %ismember(A,B)はAを元にしてBの値がAにある場合に1,ない場合は0を返す論理配列を作成
+    
+    expos(logic,2)=trialData(:,3);
+    %exposの2列目に(画面情報)を代入.引数のok(論理配列)をexposnの2列目に適用して,1のところに代入
+    %0のところは代入されず欠損値-1のまま
+    
+    expos(logic,5)=trialData(:,4);
+    %exposの5列目に(視線のx座標)を代入.引数のok(論理配列)をexposnの5列目に適用して,1のところに代入
+    %0のところは代入されず欠損値0のまま
+    
+    centerJudge = find(expos(:,2) == 1);
+    center = expos(centerJudge, 5);
+    center_mean = mean(center);
+    
+    left = expos(:,5) < center_mean;
+    right = expos(:,5) >= center_mean;
+    expos(left,3) = 100;
+    expos(right,3) = 102;
+    
+    correct = expos(:,3) == keyData(count,2);
+    expos(correct, 4) = 1;
+    error = expos(:,3) ~= keyData(count, 2) & expos(:,2) ~= -1;
+    expos(error, 4) = 0;
+    judgeData(:, count+1) = expos(sp_width-499:sp_width, 4);
+    
+    result_data = zeros(1,500);
+    ok = ~ismember(judgeData(n,2:21),-1);
+    for k = 1:N
+        if ok(1,k) ==1:%論理配列䛾値が1なら＝欠損値でないなら
+        end
+    end
+
+
+    
+%     
+%     %この試行の注点提示時のx座標の平均を求める=>視線の中心の決定
+%     sum=0;   %x座標の合計
+%     f=0;     %加算した回数
+%     for j=1:sp_height   %exposの全時間は1-c
+%         if expos(j,2) == 1       %注視点が提示されていれば
+%             sum=sum+expos(j,5);  %x座標を加算
+%             f=f+1;               %加算回数の総数
+%         end
+%     end
+%     
+%     center=sum/f;                %x座標の中心=x座標の総数/加算回数
+%     
+%     %求めたx座標の中心から左を向いているか右を向いているか判定する
+%     
+%     for k=1:sp_height    %exposの全時間は1-c
+%         if expos(k,2) == 2       %画像が提示されていたら
+%             if expos(k,5) <= center %x座標の中心よりもx座標が小さかったら
+%                 expos(k,3)=100;     %exposの3列目(視線方向)に100を代入
+%             elseif expos(k,5) > center %x座標の中心よりもx座標が大きかったら
+%                 expos(k,3)=102;     %exposの3列目(視線方向)に102を代入
+%             end
+%         end
+%     end
+%     
+%     %選択結果(data)と比較して,結果と同じ方向を向いているかいないかを判定
+%     for l=1:sp_height    %exposの全時間は1-c
+%         if expos(l,2) == 2             %画像が写っている時
+%             if expos(l,3) == judgeData(count,2)
+%                 expos(l,4)=1;
+%             elseif (expos(l,3) ~= judgeData(count,2)) && (expos(l,3) ~= -1)
+%                 expos(l,4)=0;
+%             end
+%         end
+%     end
+    
+    
+    result(:,count+1)=expos(sp_height-499:sp_height,4);    %resultにexposの結果と視線方向が一致しているか格納
+end
+
+%%%%%大きいfor文の終わり%%%%%
+
+
+rate=zeros(500,1);    %グラフをプロットする際に割合を格納する配列
+
+for m=1:500
+    v=result(m,2:N+1);    %平均をとる時間の値を抽出
+    check=(v ~= -1);      %-1でないところが1という条件を設定して論理配列を作成
+    s=mean(v(check));     %aに論理配列を適用して平均をとる
+    %この時,論理配列が1のところだけが使用される.論理配列の1のところのaの値が加算され,論理配列1の数が分母(試行総数)となる
+    
+    rate(m,1)=s;   %結果の代入
+end
+
+%%%%%グラフのプロット%%%%%
+
+figure;
+plot(y,rate);
+axis([-1000 0 0 1]);
+xlabel('Time[ms]');
+ylabel('Ratio of reaction');
+
+%反応率が50%より上だと、判断する前に選択した方をよく見ていた(カスケード現象が生じていた)
+%カスケード現象: 選択する前に無意識的にその方向を向く

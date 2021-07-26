@@ -9,8 +9,8 @@ KbName('UnifyKeyNames'); % キー配置の設定
 subject = '1230373'; % 被験者番号（学籍番号を入力）
 setsizes = [4 8 16]; % 刺激セットサイズ
 nSetSizes = length(setsizes); % セットサイズの条件数
-pTrials = 10; % 練習試行数
-rTrials = 10; % 繰り返し数
+pTrials = 12; % 練習試行数
+rTrials = 20; % 繰り返し数
 xTrials = rTrials*2*2*nSetSizes; % 本実験試行数
 
 % その他の実験パラメタの設定
