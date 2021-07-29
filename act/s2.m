@@ -1,3 +1,5 @@
+close all;
+clear all;
 N=240;
 setsize=[4,8,16];
 data=readmatrix('data1230373-backup.txt');
@@ -141,6 +143,12 @@ Y4=target4_8/count4_8;
 Z4=target4_4/count4_4;
 
 target4=[X4 Y4 Z4];
+
+%inverse
+target1 = flip(target1);
+target2 = flip(target2);
+target3 = flip(target3);
+target4 = flip(target4);
 
 
 plot(setsize,target1,'-o',setsize,target2,'--o',setsize,target3,'-^',setsize,target4,'--^');
