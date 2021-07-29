@@ -2,7 +2,7 @@ close all;
 clear all;
 N=240;
 setsize=[4,8,16];
-data=readmatrix('data1230373-backup.txt');
+data=readmatrix('data1230373-s3.txt');
 
 target1_16=0;
 count1_16=0;
@@ -124,11 +124,11 @@ for i=13:252
                     target4_16=target4_16+data(i,8);
                     count4_16=count4_16+1;
                 else if(data(i,6)==8)
-                    target4_8=target4_8+data(i,8);
-                    count4_8=count4_8+1;
-                else if(data(i,6)==4)
-                    target4_4=target4_4+data(i,8);
-                    count4_4=count4_4+1;
+                        target4_8=target4_8+data(i,8);
+                        count4_8=count4_8+1;
+                    else if(data(i,6)==4)
+                            target4_4=target4_4+data(i,8);
+                            count4_4=count4_4+1;
                             
                         end
                     end
@@ -153,4 +153,6 @@ target4 = flip(target4);
 
 plot(setsize,target1,'-o',setsize,target2,'--o',setsize,target3,'-^',setsize,target4,'--^');
 axis([0 20 500 2000]);
-legend('目標刺激：丸（目標刺激あり)','目標刺激；丸＋棒（目標刺激あり)','目標刺激；丸（目標刺激なし)','目標刺激；丸＋棒（目標刺激なし)')
+legend('目標刺激：丸（目標刺激あり)','目標刺激；丸＋棒（目標刺激あり)','目標刺激；丸（目標刺激なし)','目標刺激；丸＋棒（目標刺激なし)');
+xlabel('setsize');
+ylabel('response time[ms]');

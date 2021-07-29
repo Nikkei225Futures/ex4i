@@ -6,7 +6,7 @@ Screen('Preference', 'ConserveVRAM', 2^24); % bugによるエラー回避のた�
 KbName('UnifyKeyNames'); % キー配置の設定
 
 % 実験パラメタの入力
-subject = '1230394 '; % 被験者番号（学籍番号を入力）
+subject = '1230394'; % 被験者番号（学籍番号を入力）
 setsizes = [4 8 16]; % 刺激セットサイズ
 nSetSizes = length(setsizes); % セットサイズの条件数
 pTrials = 12; % 練習試行数
@@ -83,9 +83,9 @@ ovalRect = [margin margin objectSize-margin objectSize-margin]; % 円の描画�
 %lineRect_hor= [stroke (objectSize - stroke)/2 objectSize+stroke (objectSize + stroke)/2]; % 線の描画範囲
 %lineRect_ver = [(objectSize - stroke)/2 stroke (objectSize + stroke)/2 objectSize+stroke]; % 線の描画範囲
 
-Screen('DrawLine', line, black, 0, objectSize/2, objectSize, objectSize/2); %線の描画
-Screen('DrawLine', crossline, black, objectSize/2, 0, objectSize/2, objectSize); %線の描画
-Screen('DrawLine', crossline, black, 0, objectSize/2, objectSize, objectSize/2); % 線を追加
+Screen('DrawLine', line, black, 0, objectSize/2, objectSize, objectSize/2,stroke); %線の描画
+Screen('DrawLine', crossline, black, objectSize/2, 0, objectSize/2, objectSize,stroke); %線の描画
+Screen('DrawLine', crossline, black, 0, objectSize/2, objectSize, objectSize/2,stroke); % 線を追加
 
 % 注視点
 hCrossRect = [0 (objectSize - stroke)/2 objectSize (objectSize + stroke)/2];
